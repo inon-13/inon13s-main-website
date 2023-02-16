@@ -182,6 +182,10 @@ select, textarea, input {
       font-size: 18px;
 }
 
+.aboutT {
+    font-size: 28px;
+}
+
 .aboutT:hover {
 background-color: dodgerblue;
 }
