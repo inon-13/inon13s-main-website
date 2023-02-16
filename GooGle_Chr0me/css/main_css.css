@@ -86,3 +86,34 @@ button:hover {
   color:blue;
   font-family: Arial, sans-serif;
   }
+
+#about {
+   left: %0;
+   top: %0;
+   border-style:  dashed solid;
+   border-color: dodgerblue;
+   border-radius: 7px;
+	padding: 10px;
+	text-align: center;
+	justify-content: center;
+      font-size: 28px;
+}
+.links:hover {
+   background-color: dodgerblue;
+}
+
+.aboutT:hover {
+background-color: dodgerblue;
+}
+
+#imageo {
+   right: 30px;
+    top: %30;
+    position: absolute;
+}
+
+#imaget {
+   left: 30px;
+    top: %30;
+    position: absolute;
+}
