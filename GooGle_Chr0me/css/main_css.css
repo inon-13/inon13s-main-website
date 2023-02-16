@@ -73,13 +73,7 @@ button:hover {
   background: blue;
   color: dodgerblue;
   }
-  #achannel:hover {
-  background: blue;
-  color: royalblue;
-  }
-  #h2channel {
-   text-align: center;
-  }
+
   .line {
   font-size: 36px;
   margin-bottom: 20px;
