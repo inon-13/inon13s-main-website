@@ -92,6 +92,13 @@ button:hover {
       font-size: 28px;
 }
 
+.aboutT {
+   left: %50;
+top: %0;
+	text-align: center;
+	justify-content: center;
+}
+
 .aboutT:hover {
 background-color: dodgerblue;
 }
