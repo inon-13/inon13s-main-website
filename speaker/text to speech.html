@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Text To Speech (made by inon13)</title>
+  <link href="css/main_css.css" rel="stylesheet" type="text/css"></link>
+</head>
+
+<body>
+	<h2>Hi!, this is text to speech (made by inon13). you type the text,</h2>
+	<h2>the computer will say it. but, if your pc not support Speech Synthesis</h2>
+	<h2 id="msg"> it will <strong>NOT</strong> say it, and</h2>
+	<h2 id="h2channel">and if you can, please subscibe to my channel by pressing <a href="https://www.youtube.com/@glitchergg9680" target="blank" id="achannel">here</a></h2>
+		<h2 class="line"></h2>
+  <div id="page-wrapper">
+	<p>type the message you want the computer will say</p>
+  <p id="tw"></p><textarea name="speech-msg" id="speech-msg" cols="30" rows="20"></textarea>
+		<h2 class="line"></h2>
+	<div class="option">
+		<p for="voice">Select the voice (Some computers not support all the speech Synthesis)</p>
+		<select name="voice" id="voice"></select>
+	</div>
+		<h2 class="line"></h2>
+	<div class="option">
+		<p for="volume">Choose the amount of the Volume</p>
+		<p for="volume">every step is 0.1, you can choose from 0 to 1</p>
+		<input type="range" min="0" max="1" step="0.1" name="volume" id="volume" value="0.5">
+		<input type="number" min="0" max="1" step="0.1" name="volume_number" id="volumenumber" value="0.5">
+		<input type="reset" name="reset" id="volumereset" class="reset">
+		<h2 class="line"></h2>
+	<div class="option">
+		<p for="rate">Choose the amount of the Rate</p>
+		<p for="rate">every step is 0.1, you can choose from 0 to 10</p>
+		<input type="range" min="0" max="10" step="0.1" name="rate" id="rate" value="1">
+		<input type="number" min="0" max="10" step="0.1" name="rate_number" id="ratenumber" value="1">
+		<input type="reset" name="reset" id="ratereset" class="reset">
+		<h2 class="line"></h2>
+	</div>
+	<div class="option">
+		<p for="pitch">Choose the amount of the Pitch</p>
+		<p for="pitch">every step is 0.1, you can choose from 0 to 2</p>
+		<input type="range" min="0" max="2" step="0.1" name="pitch" id="pitch" value="1">
+		<input type="number" min="0" max="2" step="0.1" name="pitch_number" id="pitchnumber" value="1">
+		<input type="reset" name="reset" id="pitchreset" class="reset">	
+				<h2 class="line"></h2>
+	</div>
+	<div class="speakButtons">
+	<br><button id="pause" class="prbs">pause</button><button id="speak">Speak</button>
+			<h2 class="line"></h2>
+	<button id="resume" class="prbs">resume</button><button id="speakloop" >Speak, but in loop</button>
+	<h2 class="line"></h2>
+	</div>
+</div>
+
+  <script src="js/js.js"></script>
+	</div>
+</body>
+</html>

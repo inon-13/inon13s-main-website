@@ -1,0 +1,33 @@
+		body {
+		background:cyan;
+		font-family: arial,helvetica,sens-serif;
+			}
+			p {
+			background:black;
+			padding:1px, 1px, 1px, 1px;
+			color:white;
+
+			}
+			.title {
+				background:yellow;
+			}
+			#aa {
+				font-size:10px;
+				color:red;
+			}
+			.nope {
+				background:cyan;
+				color:black;
+			}
+			#red{
+				color:red;
+			}
+.firstradio {
+	color: red;
+}
+.secondradio {
+	color: green;
+}
+.thirdradio {
+	color: blue;
+}

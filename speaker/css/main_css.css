@@ -1,0 +1,171 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+  padding: 20px;
+  text-align: center;
+  justify-content: center;
+  background-color: royalblue;
+}
+
+h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+input[type="number"] {
+  padding: 10px 20px;
+  font-size: 18px;
+  width: 50%;
+  margin-bottom: 20px;
+  border-radius: 7px;
+}
+
+
+select {
+  padding: 10px 20px;
+  font-size: 18px;
+  width: 25%;
+  margin-bottom: 20px;
+  text-align: center;
+  border-radius: 7px;
+  cursor: pointer;
+  color:black;
+}
+
+select:hover {
+	color:blue;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: dodgerblue;
+  color: white;
+  border-color: black;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: royalblue;
+}
+  body {
+    padding: 4px;
+    padding-right: 5px;
+  }
+  #msg {
+    line-height: 1.4em;
+  }
+  #msg.not-supported strong {
+    color: #CC0000;
+  }
+  textarea, select {
+    width: 1100px;
+	border-radius: 7px;
+  }
+  input[type="range"] {
+    width: 100%;
+	color: red;
+  }
+  label {
+    display: inline-block;
+    float: left;
+    width: 150px;
+  }
+  .option {
+    margin: 1em 0;
+  }
+
+  button {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+	color:white;
+	background:blue;
+	font-size: 2.0em;
+  }
+  h2 {
+	color:blue;
+  }
+  p {
+	font-size: 1.4em;
+	color:blue;
+  }
+ .line {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color:blue;
+  font-family: Arial, sans-serif;
+  }
+  #achannel {
+  background: royalblue;
+  color: blue;
+  }
+  #achannel:hover {
+  background: blue;
+  color: royalblue;
+  }
+  #h2channel {
+   text-align: center;
+  }
+  
+#speakloop {
+  width: 30%;
+  background-color: cyan;
+  border: none;
+  right: 0;
+}
+
+#speakloop:hover {
+  width: 30%;
+  background-color: dodgerblue;
+  border: none;
+  right: 0;
+}
+#speak {
+  width: 30%;
+  background-color: cyan;
+  border: none;
+  right: 0;
+}
+
+#speak:hover {
+  width: 30%;
+  background-color: dodgerblue;
+  border: none;
+  right: 0;
+}
+
+#pause {
+  width: 30%;
+  border: none;
+  left: 0;
+}
+#resume {
+  width: 30%;
+  border: none;
+  left: 0;
+}
+.reset {
+	display: inline-block;
+    text-align: center;
+	color:white;
+	background:lime;
+	font-size: 2.0em;
+	border-radius: 7px;
+	cursor: pointer;
+}
+.reset:hover {
+	background-color: green;
+}
+.prbs:hover {
+	background:dodgerblue;
+	border-radius: 7px;
+	cursor: pointer;
+}
+
+select, textarea, input {
+	background-color: dodgerblue;
+}
+#volume {
+	background:red;
+}

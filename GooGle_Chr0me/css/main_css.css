@@ -1,0 +1,88 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+  padding: 20px;
+  text-align: center;
+  background-color: royalblue;
+    justify-content: center;
+}
+
+h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color:blue;
+}
+
+h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-align: left;
+  color:blue;
+}
+
+h3 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color:blue;
+}
+
+h4 {
+  font-size: 15px;
+  margin-bottom: 20px;
+  color:blue;
+}
+.center-text {
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-align: center;
+  color:blue;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 23px;
+  background-color: blue;
+  color: dodgerblue;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: dodgerblue;
+  color: blue;
+}
+  body {
+    padding: 4px;
+    padding-right: 5px;
+  }
+  h2 {
+	color:blue;
+  }
+  p {
+	font-size: 1.4em;
+	color:blue;
+  }
+  
+  a {
+  color:dodgerblue;
+  }
+  a:hover {
+	  color: blue;
+  }
+  #achannel {
+  background: royalblue;
+  color: blue;
+  }
+  #achannel:hover {
+  background: blue;
+  color: royalblue;
+  }
+  #h2channel {
+   text-align: center;
+  }
+  .line {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color:blue;
+  font-family: Arial, sans-serif;
+  }
