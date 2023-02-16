@@ -82,7 +82,6 @@ button:hover {
   }
 
 #about {
-   left: %0;
    top: %0;
    border-style:  dashed solid;
    border-color: dodgerblue;
