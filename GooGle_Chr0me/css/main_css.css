@@ -66,12 +66,12 @@ button:hover {
   a {
   color:dodgerblue;
   }
-  a:hover {
-	  color: blue;
-  }
-  #achannel {
-  background: royalblue;
+    .achannel {
   color: blue;
+  }
+  .achannel:hover {
+  background: blue;
+  color: dodgerblue;
   }
   #achannel:hover {
   background: blue;
