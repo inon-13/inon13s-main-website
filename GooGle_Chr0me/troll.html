@@ -1,6 +1,7 @@
 <!DOCOTYPE html>
 <html>
 	<head>
+		<title id="titleTag"></title>
 		<style>
 video {
 	width: 100%;
@@ -15,7 +16,7 @@ video {
 	}
 		</style>
 	<script>
-		const bodyTag = document.getElementByTagName ('body');
+	const titleTag = document.getElementById ('titleTag');
 		
 		window.onkeydown = function() {
 			var keyCode = event.keyCode;
@@ -23,12 +24,9 @@ video {
 			if (keyCode == 18 || keyCode == 27 || keyCode == 115) {
 				return null;
 				
-				const RPos = window.open('https://inon-13.github.io/inon13-s-main-website-/GooGle_Chr0me/troll.html','RPos', 'width=300, height=300, left=500, top=500');
-				setInterval(function(){
-      				setTimeout(function(){RPos.moveTo(Math.floor(Math.random() * 10000), Math.floor(Math.random() * 1200))}, 10000)
-			}
-		};
-		
+				window.open('troll.html');
+		}
+        }
 		window.oncontextmenu = function() {
 			return false;
 		};
@@ -38,13 +36,27 @@ video {
 		};
 		
 		window.onbeforeunload = function() {
+            return false;
 			if (random(1) == 1) {
-				return 'problem?'; 
+			alert ('problem?');
 			}
 			else if (randoom(1) == 0) {
-			return 'you mad bro?';
+			alert ('you mad, bro?')
 		}
 		};
+		
+        setInterval(function(){
+            if (random(400) > 0 & random(400) < 51) {titleTag.innerHTML = 'problem?'}
+            if (random(400) > 50 & random(400) < 101) {titleTag.innerHTML = 'you mad, bro?'}
+            if (random(400) > 100 & random(400) < 151) {titleTag.innerHTML = "you've been trolled"}
+            if (random(400) > 150 & random(400) < 201) {titleTag.innerHTML = 'trolololololololo'}
+            if (random(400) > 200 & random(400) < 251) {titleTag.innerHTML = 'problem?'}
+            if (random(400) > 250 & random(400) < 301) {titleTag.innerHTML = 'you mad, bro?'}
+            if (random(400) > 300 & random(400) < 351) {titleTag.innerHTML = "you've been trolled"}
+            if (random(400) > 350 & random(400) < 401) {titleTag.innerHTML = 'trolololololololo'}
+        }, 1000);
+
+setInterval(function(){window.moveTo(Math.floor(Math.random() * 1400), Math.floor(Math.random() * 1200))}, 800);
 		
 	</script>
 	</head>
