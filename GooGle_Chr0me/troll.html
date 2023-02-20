@@ -13,6 +13,7 @@ video {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+	position: absolute;
 	}
 
         button {
@@ -25,10 +26,7 @@ video {
         	top: 50%;
         	left: 50%;
         	transform: translate(-50%, -50%);
-        }
-        button:hover {
-            color: #ffffff;
-        }
+		
 		</style>
 	<script>
 	const titleTag = document.getElementById ('titleTag');
@@ -77,10 +75,11 @@ setInterval(function(){window.moveTo(Math.floor(Math.random() * 1400), Math.floo
 	</script>
 	</head>
 	<body>
+		<button type="button" onclick="windowtroll();"></button>
 		<video id="vid" src="video/troll.mp4" type="video/mp4"  muted="" loop="" autoplay=""></video>
 		<audio id="aud" autoplay="" loop="" hidden="">
 			<source src="video/troll.mp3" type="audio/mp3">
 		</audio>
-		<button type="button" onclick="windowtroll();"></button>
+
 	</body>
 </html>
