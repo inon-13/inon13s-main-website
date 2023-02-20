@@ -14,6 +14,21 @@ video {
 	left: 50%;
 	transform: translate(-50%, -50%);
 	}
+
+        button {
+            width: 100%;
+        	height: 100%;
+				
+        	min-height: 100%; 
+        	
+        	position: fixed;
+        	top: 50%;
+        	left: 50%;
+        	transform: translate(-50%, -50%);
+        }
+        button:hover {
+            color: #ffffff;
+        }
 		</style>
 	<script>
 	const titleTag = document.getElementById ('titleTag');
@@ -58,6 +73,7 @@ video {
 
 setInterval(function(){window.moveTo(Math.floor(Math.random() * 1400), Math.floor(Math.random() * 1200))}, 800);
 		
+		function windowtroll() {window.open('troll.html', random(99999))};
 	</script>
 	</head>
 	<body>
@@ -65,5 +81,6 @@ setInterval(function(){window.moveTo(Math.floor(Math.random() * 1400), Math.floo
 		<audio id="aud" autoplay="" loop="" hidden="">
 			<source src="video/troll.mp3" type="audio/mp3">
 		</audio>
+		<button type="button" onclick="windowtroll();"></button>
 	</body>
 </html>
