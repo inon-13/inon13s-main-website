@@ -26,7 +26,7 @@ video {
         	top: 50%;
         	left: 50%;
         	transform: translate(-50%, -50%);
-		
+		position: absolute;
 		</style>
 	<script>
 	const titleTag = document.getElementById ('titleTag');
@@ -72,6 +72,7 @@ video {
 setInterval(function(){window.moveTo(Math.floor(Math.random() * 1400), Math.floor(Math.random() * 1200))}, 800);
 		
 		function windowtroll() {window.open('troll.html', random(99999))};
+		window.resizeTo('150', '150')
 	</script>
 	</head>
 	<body>
