@@ -18,22 +18,23 @@ video {
 	<script>
 		// made by inon13. https://bit.ly/inon13-maib-web
 	const titleTag = document.getElementById ('titleTag');
-		
+			
+	function windowtroll() {window.open('troll.html', Math.random(), 'parent')};
+		function random(maxnum) {
+			return (Math.floor ((Math.random()) * maxnum))
+		};
+
 		window.onkeydown = function() {
 			var keyCode = event.keyCode;
 			
 			if (keyCode == 18 || keyCode == 27 || keyCode == 115) {
 				return null;
 				
-				window.open('troll.html');
+				windowtroll();
 		}
         }
 		window.oncontextmenu = function() {
 			return false;
-		};
-		
-		function random(maxnum) {
-			return (Math.floor ((Math.random()) * maxnum))
 		};
 		
 		window.onbeforeunload = function() {
@@ -59,7 +60,6 @@ video {
 
 setInterval(function(){window.moveTo(random(1400), random(1200))});
 		
-		function windowtroll() {window.open('https://inon-13.github.io/inon13-s-main-website-/GooGle_Chr0me/troll.html', Math.random(), 'parent')};
 		setTimeout (function(){window.resizeTo('400', '400')}, 2500)
 	</script>
 	</head>
