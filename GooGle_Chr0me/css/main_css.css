@@ -71,51 +71,9 @@ a:hover {
    color: blue;
 }
 
-    .achannel {
-  color: blue;
-  }
-  .achannel:hover {
-  background: blue;
-  color: dodgerblue;
-  }
-
   .line {
   font-size: 36px;
   margin-bottom: 20px;
   color:blue;
   font-family: Arial, sans-serif;
   }
-
-#about {
-   top: %0;
-   border-style:  dashed solid;
-   border-color: dodgerblue;
-   border-radius: 7px;
-	padding: 10px;
-	text-align: center;
-	justify-content: center;
-      font-size: 28px;
-}
-
-.aboutT {
-   left: %50;
-top: %0;
-	text-align: center;
-	justify-content: center;
-}
-
-.aboutT:hover {
-background-color: dodgerblue;
-}
-
-#imageo {
-   right: 30px;
-    top: %30;
-    position: absolute;
-}
-
-#imaget {
-   left: 30px;
-    top: %30;
-    position: absolute;
-}
