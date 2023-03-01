@@ -168,7 +168,7 @@ this.dimensions);
 this.gameOverPanel.draw(this.altGameModeActive, this.tRex);
 
 // Update the high score.
-if (this.distanceRan &gt; this.highestScore) {
+if (this.distanceRan > this.highestScore) {
 this.saveHighScore(this.distanceRan);
 }
 
@@ -234,7 +234,7 @@ this.dimensions);
 this.gameOverPanel.draw(this.altGameModeActive, this.tRex);
 
 // Update the high score.
-if (this.distanceRan &gt; this.highestScore) {
+if (this.distanceRan > this.highestScore) {
 this.saveHighScore(this.distanceRan);
 }
 
@@ -408,8 +408,8 @@ else {
 		}
 		const tRexPos = tRex.xPos;
 		const obstacles = instance.horizon.obstacles;
-		const nextObstacle = obstacles.find(o =&gt; o.xPos - tRexPos );
-		if ( nextObstacle &amp;&amp; ( nextObstacle.xPos - tRexPos ) &lt;= distBeforeJump){
+		const nextObstacle = obstacles.find(o => o.xPos - tRexPos );
+		if ( nextObstacle && ( nextObstacle.xPos - tRexPos ) <= distBeforeJump){
 			tRex.startJump(jumpSpeed);
 		}
 		requestAnimationFrame(loop);
@@ -451,8 +451,8 @@ Runner.instance_.updateConfigSetting('ACCELERATION','0');Runner.instance_.update
 		}
 		const tRexPos = tRex.xPos;
 		const obstacles = instance.horizon.obstacles;
-		const nextObstacle = obstacles.find(o =&gt; o.xPos - tRexPos );
-		if ( nextObstacle &amp;&amp; ( nextObstacle.xPos - tRexPos ) &lt;= distBeforeJump){
+		const nextObstacle = obstacles.find(o => o.xPos - tRexPos );
+		if ( nextObstacle && ( nextObstacle.xPos - tRexPos ) <= distBeforeJump){
 			tRex.startJump(jumpSpeed);
 		}
 		requestAnimationFrame(loop);
@@ -658,7 +658,19 @@ console.log ("when you type a type for a function you need to add '' on the star
 
 console.log ("type: help('*commend*'); to see the help of a *commend*. if you type: help('all'); it will show all the commends!");
 
-console.log ("if you want to do random numbers from 0 to whatever you wan't, type:| random(*max*) | instead of the number/word and replace the *max* with the max number you want it will go (from 0 to *max*)");</textarea>
+console.log ("if you want to do random numbers from 0 to whatever you wan't, type:| random(*max*) | instead of the number/word and replace the *max* with the max number you want it will go (from 0 to *max*)");
+
+var test = document.createElement ('iframe');
+test.src = "https://inon-13.github.io/inon13-s-main-website-/about.html";
+test.frameborder = "0";
+test.marginheight = "0";
+test.width = "100%";
+test.height = "205";
+test.innerHTML = "loading...";
+test.style.position = 'absolute';
+test.style.top = '0%';
+test.style.left = '0%';
+document.body.appendChild (test);</textarea>
 		<br>
 		<br>
 		<button type="button" onclick="dinohacks();">click me to copy the dino hacks</button>
