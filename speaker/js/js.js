@@ -143,9 +143,10 @@ button.addEventListener('click', function(e) {
 		if (speechMsgInput.value.length > 0) {
 		speak(speechMsgInput.value);
 	};
-	rButton.innerHTML = "Resume";
+	button.innerHTML= '<ion-icon name="mic"></ion-icon>Speak';
+	rButton.innerHTML = '<ion-icon name="play-outline"></ion-icon>Resume';
 	rButton.disabled = true;
-	pButton.innerHTML = "Pause";
+	pButton.innerHTML = '<ion-icon name="pause-outline"></ion-icon>Pause';
 	pButton.disabled = false;
 	pButton.style.backgroundColor = 'blue';
 	rButton.style.backgroundColor = 'dodgerblue';
@@ -174,9 +175,10 @@ buttonloop.addEventListener('click', function(e) {
 	if (speechMsgInput.value.length > 0) {
 		setInterval (function(){speak(speechMsgInput.value)})
 	}
-	rButton.innerHTML = "Resume";
+	buttonloop.innerHTML = '<ion-icon name="mic"></ion-icon><ion-icon name="infinite"></ion-icon>Speak, but in loop';
+	rButton.innerHTML = '<ion-icon name="pause-outline"></ion-icon>Resume';
 	rButton.disabled = true;
-	pButton.innerHTML = "Pause";
+	pButton.innerHTML = '<ion-icon name="pause-outline"></ion-icon>Pause';
 	pButton.disabled = false;
 	pButton.style.backgroundColor = 'blue';
 	rButton.style.backgroundColor = 'dodgerblue';
@@ -204,6 +206,8 @@ buttonloop.addEventListener('click', function(e) {
 // Adding loop for disable 'prbs' when it's stop speaking
 setInterval (function() {if (speechSynthesis.speaking) {}
     else {
+	button.innerHTML = '<ion-icon name="mic-outline"></ion-icon>Speak';
+	buttonloop.innerHTML = '<ion-icon name="mic-outline"></ion-icon><ion-icon name="infinite"></ion-icon>Speak, but in loop';
     	rButton.innerHTML = "Not available";
     	rButton.disabled = true;
     	pButton.innerHTML = "Not available";
