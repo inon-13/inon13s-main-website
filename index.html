@@ -1,5 +1,4 @@
-<html>
-	<head>
+<html class="hydrated"><head>
 		<title>inon13's website</title>
 		<style>
 			body {
@@ -36,24 +35,19 @@
 						margin-bottom: 20px;
 						color:blue;
 						}
-					#ViruS_Alert {
-						font-size: 28px;
-						margin-bottom: 20px;
-						text-align: center;
-						color:blue;
-					}
 
 button {
   padding: 10px 20px;
   font-size: 23px;
   color: blue;
   border: none;
-  border-radius: 25px;
+border-radius: 25px;
   cursor: pointer;
+background: royalblue;
 }
 
 button:hover {
-  background-color: royalblue;
+  background-color: dodgerblue;
 }
   body {
     padding: 4px;
@@ -123,7 +117,7 @@ function dinohacks() {
 	
 	<h2 id="h2channel">and if you can, please subscibe to my channel by pressing the link on the top</h2>
 
-	<button type="button" onclick="myFunction()">click me to get all my Geometry dash hacks</button>
+	<h2>click the button to copy my geometry dash hacks - </h2><button type="button" onclick="myFunction()"><ion-icon name="clipboard-outline" role="img" class="md hydrated" aria-label="clipboard outline"></ion-icon></button>
 	<h2>this is the dino hacks... for now...</h2>
 	<textarea style="width: 695px; height: 725px; background: dodgerblue;" id="DH">function reset(cmd) {
 	if (cmd == 'all') {
@@ -168,7 +162,7 @@ this.dimensions);
 this.gameOverPanel.draw(this.altGameModeActive, this.tRex);
 
 // Update the high score.
-if (this.distanceRan > this.highestScore) {
+if (this.distanceRan &gt; this.highestScore) {
 this.saveHighScore(this.distanceRan);
 }
 
@@ -234,7 +228,7 @@ this.dimensions);
 this.gameOverPanel.draw(this.altGameModeActive, this.tRex);
 
 // Update the high score.
-if (this.distanceRan > this.highestScore) {
+if (this.distanceRan &gt; this.highestScore) {
 this.saveHighScore(this.distanceRan);
 }
 
@@ -408,8 +402,8 @@ else {
 		}
 		const tRexPos = tRex.xPos;
 		const obstacles = instance.horizon.obstacles;
-		const nextObstacle = obstacles.find(o => o.xPos - tRexPos );
-		if ( nextObstacle && ( nextObstacle.xPos - tRexPos ) <= distBeforeJump){
+		const nextObstacle = obstacles.find(o =&gt; o.xPos - tRexPos );
+		if ( nextObstacle &amp;&amp; ( nextObstacle.xPos - tRexPos ) &lt;= distBeforeJump){
 			tRex.startJump(jumpSpeed);
 		}
 		requestAnimationFrame(loop);
@@ -451,8 +445,8 @@ Runner.instance_.updateConfigSetting('ACCELERATION','0');Runner.instance_.update
 		}
 		const tRexPos = tRex.xPos;
 		const obstacles = instance.horizon.obstacles;
-		const nextObstacle = obstacles.find(o => o.xPos - tRexPos );
-		if ( nextObstacle && ( nextObstacle.xPos - tRexPos ) <= distBeforeJump){
+		const nextObstacle = obstacles.find(o =&gt; o.xPos - tRexPos );
+		if ( nextObstacle &amp;&amp; ( nextObstacle.xPos - tRexPos ) &lt;= distBeforeJump){
 			tRex.startJump(jumpSpeed);
 		}
 		requestAnimationFrame(loop);
@@ -673,13 +667,14 @@ test.style.left = '0%';
 document.body.appendChild (test);</textarea>
 		<br>
 		<br>
-		<h2>now click the button to copy the dino hacks - </h2><button type="button" onclick="dinohacks();"><ion-icon name="clipboard-outline">copy</ion-icon></button>
+		<h2>now click the button to copy the dino hacks - </h2><button type="button" onclick="dinohacks();"><ion-icon name="clipboard-outline" role="img" class="md hydrated" aria-label="clipboard outline"></ion-icon></button>
 		<br>
 		<h2>now copy the hacks, go to chrome://dino, press right-click anywhere in the web and press the last option (inspact).<br>
 		after that you need to make sure you are on console on the top and not on elements.<br>if you are in elements just click on console.<br>
 	after all of that just paste the code where you can type/write and press {ENTER}<br>
 		see what you need to do, play and enjoy</h2>
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-	</body>
-</html>
+<script nomodule="" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+	
+
+</body></html>
