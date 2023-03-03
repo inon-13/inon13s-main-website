@@ -206,8 +206,8 @@ buttonloop.addEventListener('click', function(e) {
 // Adding loop for disable 'prbs' when it's stop speaking
 setInterval (function() {if (speechSynthesis.speaking) {}
     else {
-	button.innerHTML = '<ion-icon name="mic-outline"></ion-icon>Speak';
-	buttonloop.innerHTML = '<ion-icon name="mic-outline"></ion-icon><ion-icon name="infinite"></ion-icon>Speak, but in loop';
+	button.innerHTML = '<ion-icon name="mic-outline"></ion-icon> - Speak';
+	buttonloop.innerHTML = '<ion-icon name="mic-outline"></ion-icon> <ion-icon name="infinite"></ion-icon> - Speak, but in loop';
     	rButton.innerHTML = "Not available";
     	rButton.disabled = true;
     	pButton.innerHTML = "Not available";
