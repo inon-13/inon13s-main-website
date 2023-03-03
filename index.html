@@ -5,7 +5,7 @@
 				font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
 					padding: 20px;
 					text-align: center;
-					background-color: royalblue;
+					background: linear-gradient(#00b9ff, #4169E1);
 					justify-content: center;
 					    right: %50;
 						top: 160px;
@@ -43,11 +43,11 @@ button {
   border: none;
 border-radius: 25px;
   cursor: pointer;
-background: royalblue;
+   background: linear-gradient(#00b9ff, #4169E1);
 }
 
 button:hover {
-  background-color: dodgerblue;
+  background: linear-gradient(#4169E1, #00b9ff);
 }
   body {
     padding: 4px;
@@ -84,6 +84,7 @@ text-decoration: none;
 }
 .links:hover {
    color: dodgerblue;
+	text-decoration: underline;
 }
 
 		</style>
@@ -119,7 +120,7 @@ function dinohacks() {
 
 	<h2>click the button to copy my geometry dash hacks - </h2><button type="button" onclick="myFunction()"><ion-icon name="clipboard-outline" role="img" class="md hydrated" aria-label="clipboard outline"></ion-icon></button>
 	<h2>this is the dino hacks... for now...</h2>
-	<textarea style="width: 695px; height: 725px; background: dodgerblue;" id="DH">function reset(cmd) {
+	<textarea style="width: 695px; height: 725px;  background: linear-gradient(#4169E1, #00b9ff);" id="DH">function reset(cmd) {
 	if (cmd == 'all') {
 		Runner.instance_.distanceMeter.config.ACHIEVEMENT_DISTANCE=100
 		Runner.instance_.setSpeed(6)
