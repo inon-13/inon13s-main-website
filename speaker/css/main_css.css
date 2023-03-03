@@ -3,7 +3,7 @@ body {
   padding: 20px;
   text-align: center;
   justify-content: center;
-  background-color: royalblue;
+   background: linear-gradient(#00b9ff, #4169E1);
 }
 
 h1 {
@@ -65,11 +65,6 @@ button:hover {
   input[type="range"] {
     width: 100%;
 	color: red;
-  }
-  label {
-    display: inline-block;
-    float: left;
-    width: 150px;
   }
   .option {
     margin: 1em 0;
@@ -153,8 +148,19 @@ button:hover {
 }
 
 select, textarea, input {
-	background-color: dodgerblue;
+	background: linear-gradient(#4169E1, #00b9ff);
 }
 #volume {
 	background:red;
+}
+ion-icon {
+width: 30px;
+height: 30px;
+    position: relative;
+}
+
+.OI {
+	color: blue;
+	top: 10px;
+    left: -10px;
 }
