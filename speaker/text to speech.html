@@ -1,18 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en" class="hydrated"><head>
   <title>Text To Speech (made by inon13)</title>
-  <link href="css/main_css.css" rel="stylesheet" type="text/css"></link>
+  <link href="css/main_css.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
 <strong>
-<iframe src="https://inon-13.github.io/inon13-s-main-website-/about.html" width="100%" height="180" frameborder="0" marginheight="0" marginwidth="0">loading</iframe><br>
+<iframe src="https://inon-13.github.io/inon13-s-main-website-/about.html" width="100%" height="190" frameborder="0" marginheight="0" marginwidth="0">loading</iframe><br>
 	<h2>Hi!, this is text to speech (made by inon13). you type the text,</h2>
 	<h2>the computer will say it. but, if your pc not support Speech Synthesis</h2>
 	<h2 id="msg"> it will <strong>NOT</strong> say it, and</h2>
 		<h2 class="line"></h2>
-  <div id="page-wrapper">
+  </strong><div id="page-wrapper"><strong>
 	<p>type the message you want the computer will say</p>
   <p id="tw"></p><textarea name="speech-msg" id="speech-msg" cols="30" rows="20"></textarea>
 		<h2 class="line"></h2>
@@ -24,15 +23,15 @@
 	<div class="option">
 		<p for="volume">Choose the amount of the Volume</p>
 		<p for="volume">every step is 0.1, you can choose from 0 to 1</p>
-		<input type="range" min="0" max="1" step="0.1" name="volume" id="volume" value="0.5">
-		<ion-icon name="volume-high-outline"></ion-icon><input type="number" min="0" max="1" step="0.1" name="volume_number" id="volumenumber" value="0.5">
+		<input type="range" min="0" max="1" step="0.1" name="volume" id="volume" value="0.5"><ion-icon name="volume-high-outline" class="OI md hydrated" role="img" aria-label="volume high outline"></ion-icon><input type="number" min="0" max="1" step="0.1" name="volume_number" id="volumenumber" value="0.5">
 		<input type="reset" name="reset" id="volumereset" class="reset">
 		<h2 class="line"></h2>
+		</div>
 	<div class="option">
 		<p for="rate">Choose the amount of the Rate</p>
 		<p for="rate">every step is 0.1, you can choose from 0 to 10</p>
 		<input type="range" min="0" max="10" step="0.1" name="rate" id="rate" value="1">
-		<ion-icon name="speedometer-outline"></ion-icon><input type="number" min="0" max="10" step="0.1" name="rate_number" id="ratenumber" value="1">
+		<ion-icon name="speedometer-outline" class="OI md hydrated" role="img" aria-label="speedometer outline"></ion-icon><input type="number" min="0" max="10" step="0.1" name="rate_number" id="ratenumber" value="1">
 		<input type="reset" name="reset" id="ratereset" class="reset">
 		<h2 class="line"></h2>
 	</div>
@@ -45,14 +44,15 @@
 				<h2 class="line"></h2>
 	</div>
 	<div class="speakButtons">
-	<br><button id="pause" class="prbs">pause</button><button id="speak"><ion-icon name="mic-outline"></ion-icon>Speak</button>
+	<br><button id="pause" class="prbs" style="background-color: dodgerblue;">pause</button><button id="speak"><ion-icon name="mic-outline" class="ISB md hydrated" role="img" aria-label="mic outline"></ion-icon>Speak</button>
 			<h2 class="line"></h2>
-	<button id="resume" class="prbs">resume</button><button id="speakloop"><ion-icon name="mic-outline"></ion-icon><ion-icon name="infinite"></ion-icon>Speak, but in loop</button>
+	<button id="resume" class="prbs" style="background-color: dodgerblue;">resume</button><button id="speakloop"><ion-icon name="mic-outline" class="ISB md hydrated" role="img" aria-label="mic outline"> </ion-icon><ion-icon name="infinite" role="img" class="md hydrated" aria-label="infinite"></ion-icon> - Speak, but in loop</button>
 	<h2 class="line"></h2>
 	</div>
   <script src="js/js.js"></script>
 </strong>
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule="" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-</body>
-</html>
+
+
+</div></body></html>
