@@ -2,7 +2,7 @@ body {
   font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
   padding: 20px;
   text-align: center;
-  background-color: royalblue;
+     background: linear-gradient(#00b9ff, #4169E1);
     justify-content: center;
 }
 
@@ -40,15 +40,15 @@ h4 {
 button {
   padding: 10px 20px;
   font-size: 23px;
-  background-color: blue;
-  color: dodgerblue;
+background: linear-gradient(#00b9ff, #4169E1);
+  color: blue;
   border: none;
   border-radius: 25px;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: dodgerblue;
+  background: linear-gradient(#4169E1, #00b9ff);
   color: blue;
 }
   body {
@@ -64,11 +64,12 @@ button:hover {
   }
   
   a {
-  color:dodgerblue;
+  color: blue;
+	  text-decoration: none;
   }
 
 a:hover {
-   color: blue;
+   text-decoration: underline;
 }
 
   .line {
