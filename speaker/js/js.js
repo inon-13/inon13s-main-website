@@ -230,3 +230,42 @@ speechMsgInput.addEventListener("input", function() {
 		tw.innerHTML = '';
 	}
 });
+
+var saveButton = document.getElementById ('save');
+var loadButton = document.getElementById ('load');
+var values = document.createElement ('p')
+document.body.appendChild (values)
+values.hidden = true;
+values.innerText = "loadSource('"+voiceSelect.value+"', "+volumeInputtwo.value+", "+rateInputtwo.value+", "+pitchInputtwo.value+", '"+speechMsgInput.value+"')";
+saveButton.addEventListener('click', function(){
+     navigator.clipboard.writeText(values.innerText)})
+function LSA() {
+  let input = prompt("Enter the saved settings string");
+  if (input) {
+    try {
+      if (input.startsWith("loadSource(") && input.endsWith(")")) {
+        let args = input.slice(11, -1).split(",");
+        args = args.map(arg => arg.trim().replace(/'/g, ""));
+        loadSource(...args);
+      } else {
+        alert("Invalid input: Please enter a valid values. if you don't know how, just press on save button to auto copy all the current values");
+      }
+    } catch (e) {
+      alert("There was an error when trying to load the following values: '" + e.message + "'");
+    }
+  }
+}
+loadButton.addEventListener ('click', function(){
+	LSA();
+})
+function loadSource(voiceL, volumeL, rateL, pitchL, SMI) {
+    voiceSelect.value = voiceL;
+    volumeInputtwo.value = volumeL;
+    volumeNumbertwo.value = volumeL;
+    rateInputtwo.value = rateL;
+    rateNumbertwo.value = rateL;
+    pitchInputtwo.value = pitchL;
+    pitchNumbertwo.value = pitchL;
+	 speechMsgInput.value = SMI;
+}
+
