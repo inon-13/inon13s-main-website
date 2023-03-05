@@ -233,16 +233,30 @@ speechMsgInput.addEventListener("input", function() {
 
 var saveButton = document.getElementById ('save');
 var loadButton = document.getElementById ('load');
-var values = document.createElement ('p')
+
 document.body.appendChild (values)
 values.hidden = true;
-values.innerText = "loadSource('"+voiceSelect.value+"', "+volumeInputtwo.value+", "+rateInputtwo.value+", "+pitchInputtwo.value+", '"+speechMsgInput.value+"')";
 saveButton.addEventListener('click', function(){
-	values.innerText = "loadSource('"+voiceSelect.value+"', "+volumeInputtwo.value+", "+rateInputtwo.value+", "+pitchInputtwo.value+", '"+speechMsgInput.value+"')";
-     navigator.clipboard.writeText(values.innerText)
+	let copytext = 	navigator.clipboard
+	function synn (number) {
+		let syn = number;
+	}
+	let SCT = synn(1);VC();
+	let SCF = synn(0);VC();
+	function VC() {
+		const syn = null;
+	const values = "loadSource('"+voiceSelect.value+"', "+volumeInputtwo.value+", "+rateInputtwo.value+", "+pitchInputtwo.value+", '"+speechMsgInput.value+", "+syn+"')";
+	const valuesB64 = btoa (values);
+	copytext.writeText (valuesB64);
+};
+	const SC = confirm ("do you wan't to auto speak this? (that's mean that when you load the code, it will auto speak)")
+	SC.true = SCT;
+	SC.false = SCF;
+	alert ('the values are successfully copyied, click ok to continue');
 	 })
 function LSA() {
-  let input = prompt("Enter the saved settings string");
+  const inputBase64 = prompt("Enter the saved settings string");
+  const input = atob (inputBase64);
   if (input) {
     try {
       if (input.startsWith("loadSource(") && input.endsWith(")")) {
@@ -260,7 +274,7 @@ function LSA() {
 loadButton.addEventListener ('click', function(){
 	LSA();
 })
-function loadSource(voiceL, volumeL, rateL, pitchL, SMI) {
+function loadSource(voiceL, volumeL, rateL, pitchL, SMI, asyn) {
     voiceSelect.value = voiceL;
     volumeInputtwo.value = volumeL;
     volumeNumbertwo.value = volumeL;
@@ -268,7 +282,15 @@ function loadSource(voiceL, volumeL, rateL, pitchL, SMI) {
     rateNumbertwo.value = rateL;
     pitchInputtwo.value = pitchL;
     pitchNumbertwo.value = pitchL;
-	 speechMsgInput.value = SMI;
+	speechMsgInput.value = SMI;
+	 if (asyn == 1) {
+		 if (speechMsgInput.value.length > 0) {
+		speak(speechMsgInput.value);
+	}
+	 } else if (asyn == 0) {
+		 alert ('the code successfully loaded!')
+	 };
 }
+
 
 
