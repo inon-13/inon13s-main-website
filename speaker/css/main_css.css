@@ -166,11 +166,19 @@ height: 30px;
 }
 #load {
 	width: 0;
-	background: none;
 	border: none;
 	cursor: pointer;
 	left: 20px;
+	background: linear-gradient(#00b9ff, #4169E1);
 }
 #save {
-	width: 0; background: none; border: none; cursor: pointer; left: -20px
+	width: 0;
+	background: none;
+	border: none;
+	cursor: pointer;
+	left: -20px;
+	background: linear-gradient(#00b9ff, #4169E1);
+}
+#save:hover #load:hover {
+	background: linear-gradient(#4169E1, #00b9ff);
 }
