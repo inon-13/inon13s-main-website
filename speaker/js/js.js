@@ -238,7 +238,9 @@ document.body.appendChild (values)
 values.hidden = true;
 values.innerText = "loadSource('"+voiceSelect.value+"', "+volumeInputtwo.value+", "+rateInputtwo.value+", "+pitchInputtwo.value+", '"+speechMsgInput.value+"')";
 saveButton.addEventListener('click', function(){
-     navigator.clipboard.writeText(values.innerText)})
+	values.innerText = "loadSource('"+voiceSelect.value+"', "+volumeInputtwo.value+", "+rateInputtwo.value+", "+pitchInputtwo.value+", '"+speechMsgInput.value+"')";
+     navigator.clipboard.writeText(values.innerText)
+	 })
 function LSA() {
   let input = prompt("Enter the saved settings string");
   if (input) {
@@ -268,4 +270,5 @@ function loadSource(voiceL, volumeL, rateL, pitchL, SMI) {
     pitchNumbertwo.value = pitchL;
 	 speechMsgInput.value = SMI;
 }
+
 
