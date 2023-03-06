@@ -234,25 +234,21 @@ var saveButton = document.getElementById ('save');
 var loadButton = document.getElementById ('load');
 
 saveButton.addEventListener('click', function(){
-	let syn = 2;
-	let values = "loadSource('"+voiceSelect.value+"', "+volumeInputtwo.value+", "+rateInputtwo.value+", "+pitchInputtwo.value+", '"+speechMsgInput.value+"', "+syn+")";
-	let valuesB64 = btoa(values);
-	const SC = confirm ("Do you want to auto-speak this? (that means when you load the code, it will auto-speak)");
-	if (SC) {
-		const syn = 1;
-		const values = "loadSource('"+voiceSelect.value+"', "+volumeInputtwo.value+", "+rateInputtwo.value+", "+pitchInputtwo.value+", '"+speechMsgInput.value+"', "+syn+")";
-		const valuesB64 = btoa (values);
-		navigator.clipboard.writeText(valuesB64);
-	} else {
-		const syn = 0;
-		const values = "loadSource('"+voiceSelect.value+"', "+volumeInputtwo.value+", "+rateInputtwo.value+", "+pitchInputtwo.value+", '"+speechMsgInput.value+"', "+syn+")";
-		const valuesB64 = btoa (values);
-		navigator.clipboard.writeText(valuesB64);
-	}
-	alert ('The values have been successfully copied. Click OK to continue.');
-}, function() {
-	alert('There was an error copying the values to the clipboard.');
+  let syn = 2;
+  const SC = confirm ("Do you want to auto-speak this? (that means when you load the code, it will auto-speak)");
+  if (SC) {
+    syn = 1;
+  } else {
+    syn = 0;
+  }
+  let values = "loadSource('"+voiceSelect.value+"', "+volumeInputtwo.value+", "+rateInputtwo.value+", "+pitchInputtwo.value+", '"+speechMsgInput.value+"', "+syn+")";
+  let valuesB64 = btoa(values);
+  document.addEventListener('click', function() {
+    navigator.clipboard.writeText(valuesB64);
+    document.removeEventListener('click', arguments.callee);
+  });
 });
+
 
 function LSA() {
   const inputBase64 = prompt("Enter the saved settings string");
