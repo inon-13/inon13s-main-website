@@ -234,20 +234,19 @@ var saveButton = document.getElementById ('save');
 var loadButton = document.getElementById ('load');
 
 saveButton.addEventListener('click', function(){
-  let syn = 2;
   const SC = confirm ("Do you want to auto-speak this? (that means when you load the code, it will auto-speak)");
-  if (SC == true) {
-	  syn = 1;
-	  let values = "loadSource('"+voiceSelect.value+"', "+volumeInputtwo.value+", "+rateInputtwo.value+", "+pitchInputtwo.value+", '"+speechMsgInput.value+"', "+syn+")";
-	  let valuesB64 = btoa(values);
-	  navigator.clipboard.writeText(valuesB64);
-} else {
-	  syn = 0;
-	  let values = "loadSource('"+voiceSelect.value+"', "+volumeInputtwo.value+", "+rateInputtwo.value+", "+pitchInputtwo.value+", '"+speechMsgInput.value+"', "+syn+")";
-	  let valuesB64 = btoa(values);
-	  navigator.clipboard.writeText(valuesB64);
-  };
+
+  let syn = 0;
+  if (SC) {
+    syn = 1;
+  }
+  
+  let values = "loadSource('"+voiceSelect.value+"', "+volumeInputtwo.value+", "+rateInputtwo.value+", "+pitchInputtwo.value+", '"+speechMsgInput.value+"', "+syn+")";
+  let valuesB64 = btoa(values);
+
+  navigator.clipboard.writeText(valuesB64);
 });
+
 
 
 function LSA() {
