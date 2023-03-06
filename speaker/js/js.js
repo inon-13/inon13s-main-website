@@ -239,7 +239,7 @@ saveButton.addEventListener('click', function(){
   let syn = 2;
   const SC = confirm ("Do you want to auto-speak this? (that means when you load the code, it will auto-speak)");
   SC.true = function(){syn = 1;navigator.clipboard.writeText(valuesB64);};
-  SC.false function() {syn = 0;navigator.clipboard.writeText(valuesB64);};
+  SC.false = function() {syn = 0;navigator.clipboard.writeText(valuesB64);};
   document.addEventListener('click', function() {
     document.removeEventListener('click', arguments.callee);
   });
