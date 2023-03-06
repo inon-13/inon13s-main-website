@@ -236,13 +236,12 @@ var loadButton = document.getElementById ('load');
 saveButton.addEventListener('click', function(){
   let syn = 2;
   const SC = confirm ("Do you want to auto-speak this? (that means when you load the code, it will auto-speak)");
-  SC.true = function(){
+  if (SC == true) {
 	  syn = 1;
 	  let values = "loadSource('"+voiceSelect.value+"', "+volumeInputtwo.value+", "+rateInputtwo.value+", "+pitchInputtwo.value+", '"+speechMsgInput.value+"', "+syn+")";
 	  let valuesB64 = btoa(values);
 	  navigator.clipboard.writeText(valuesB64);
-  	};
-  SC.false = function() {
+} else {
 	  syn = 0;
 	  let values = "loadSource('"+voiceSelect.value+"', "+volumeInputtwo.value+", "+rateInputtwo.value+", "+pitchInputtwo.value+", '"+speechMsgInput.value+"', "+syn+")";
 	  let valuesB64 = btoa(values);
