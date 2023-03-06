@@ -234,17 +234,13 @@ var saveButton = document.getElementById ('save');
 var loadButton = document.getElementById ('load');
 
 saveButton.addEventListener('click', function(){
+	  let values = "loadSource('"+voiceSelect.value+"', "+volumeInputtwo.value+", "+rateInputtwo.value+", "+pitchInputtwo.value+", '"+speechMsgInput.value+"', "+syn+")";
+  let valuesB64 = btoa(values);
   let syn = 2;
   const SC = confirm ("Do you want to auto-speak this? (that means when you load the code, it will auto-speak)");
-  if (SC) {
-    syn = 1;
-  } else {
-    syn = 0;
-  }
-  let values = "loadSource('"+voiceSelect.value+"', "+volumeInputtwo.value+", "+rateInputtwo.value+", "+pitchInputtwo.value+", '"+speechMsgInput.value+"', "+syn+")";
-  let valuesB64 = btoa(values);
+  SC.true = function(){syn = 1;navigator.clipboard.writeText(valuesB64);};
+  SC.false function() {syn = 0;navigator.clipboard.writeText(valuesB64);};
   document.addEventListener('click', function() {
-    navigator.clipboard.writeText(valuesB64);
     document.removeEventListener('click', arguments.callee);
   });
 });
