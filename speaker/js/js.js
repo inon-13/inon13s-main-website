@@ -292,4 +292,4 @@ function loadSource(voiceL, volumeL, rateL, pitchL, SMI, asyn) {
 
 loadButton.addEventListener ('click', function(){
 	LSA();
-})
+});
