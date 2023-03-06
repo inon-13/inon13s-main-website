@@ -234,15 +234,20 @@ var saveButton = document.getElementById ('save');
 var loadButton = document.getElementById ('load');
 
 saveButton.addEventListener('click', function(){
-	  let values = "loadSource('"+voiceSelect.value+"', "+volumeInputtwo.value+", "+rateInputtwo.value+", "+pitchInputtwo.value+", '"+speechMsgInput.value+"', "+syn+")";
-  let valuesB64 = btoa(values);
   let syn = 2;
   const SC = confirm ("Do you want to auto-speak this? (that means when you load the code, it will auto-speak)");
-  SC.true = function(){syn = 1;navigator.clipboard.writeText(valuesB64);};
-  SC.false = function() {syn = 0;navigator.clipboard.writeText(valuesB64);};
-  document.addEventListener('click', function() {
-    document.removeEventListener('click', arguments.callee);
-  });
+  SC.true = function(){
+	  syn = 1;
+	  let values = "loadSource('"+voiceSelect.value+"', "+volumeInputtwo.value+", "+rateInputtwo.value+", "+pitchInputtwo.value+", '"+speechMsgInput.value+"', "+syn+")";
+	  let valuesB64 = btoa(values);
+	  navigator.clipboard.writeText(valuesB64);
+  	};
+  SC.false = function() {
+	  syn = 0;
+	  let values = "loadSource('"+voiceSelect.value+"', "+volumeInputtwo.value+", "+rateInputtwo.value+", "+pitchInputtwo.value+", '"+speechMsgInput.value+"', "+syn+")";
+	  let valuesB64 = btoa(values);
+	  navigator.clipboard.writeText(valuesB64);
+  };
 });
 
 
