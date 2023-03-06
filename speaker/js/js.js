@@ -234,26 +234,27 @@ speechMsgInput.addEventListener("input", function() {
 var saveButton = document.getElementById ('save');
 var loadButton = document.getElementById ('load');
 
-document.body.appendChild (values)
-values.hidden = true;
 saveButton.addEventListener('click', function(){
-	let copytext = 	navigator.clipboard
-	function synn (number) {
-		let syn = number;
+	let syn = 2;
+	let values = "loadSource('"+voiceSelect.value+"', "+volumeInputtwo.value+", "+rateInputtwo.value+", "+pitchInputtwo.value+", '"+speechMsgInput.value+"', "+syn+")";
+	let valuesB64 = btoa(values);
+	const SC = confirm ("Do you want to auto-speak this? (that means when you load the code, it will auto-speak)");
+	if (SC) {
+		const syn = 1;
+		const values = "loadSource('"+voiceSelect.value+"', "+volumeInputtwo.value+", "+rateInputtwo.value+", "+pitchInputtwo.value+", '"+speechMsgInput.value+"', "+syn+")";
+		const valuesB64 = btoa (values);
+		navigator.clipboard.writeText(valuesB64);
+	} else {
+		const syn = 0;
+		const values = "loadSource('"+voiceSelect.value+"', "+volumeInputtwo.value+", "+rateInputtwo.value+", "+pitchInputtwo.value+", '"+speechMsgInput.value+"', "+syn+")";
+		const valuesB64 = btoa (values);
+		navigator.clipboard.writeText(valuesB64);
 	}
-	let SCT = synn(1);VC();
-	let SCF = synn(0);VC();
-	function VC() {
-		const syn = null;
-	const values = "loadSource('"+voiceSelect.value+"', "+volumeInputtwo.value+", "+rateInputtwo.value+", "+pitchInputtwo.value+", '"+speechMsgInput.value+", "+syn+"')";
-	const valuesB64 = btoa (values);
-	copytext.writeText (valuesB64);
-};
-	const SC = confirm ("do you wan't to auto speak this? (that's mean that when you load the code, it will auto speak)")
-	SC.true = SCT;
-	SC.false = SCF;
-	alert ('the values are successfully copyied, click ok to continue');
-	 })
+	alert ('The values have been successfully copied. Click OK to continue.');
+}, function() {
+	alert('There was an error copying the values to the clipboard.');
+});
+
 function LSA() {
   const inputBase64 = prompt("Enter the saved settings string");
   const input = atob (inputBase64);
@@ -264,16 +265,14 @@ function LSA() {
         args = args.map(arg => arg.trim().replace(/'/g, ""));
         loadSource(...args);
       } else {
-        alert("Invalid input: Please enter a valid values. if you don't know how, just press on save button to auto copy all the current values");
+        alert("Invalid input: Please enter a valid values. If you don't know how, just press on save button to auto copy all the current values.");
       }
     } catch (e) {
       alert("There was an error when trying to load the following values: '" + e.message + "'");
     }
   }
 }
-loadButton.addEventListener ('click', function(){
-	LSA();
-})
+
 function loadSource(voiceL, volumeL, rateL, pitchL, SMI, asyn) {
     voiceSelect.value = voiceL;
     volumeInputtwo.value = volumeL;
@@ -283,14 +282,18 @@ function loadSource(voiceL, volumeL, rateL, pitchL, SMI, asyn) {
     pitchInputtwo.value = pitchL;
     pitchNumbertwo.value = pitchL;
 	speechMsgInput.value = SMI;
-	 if (asyn == 1) {
-		 if (speechMsgInput.value.length > 0) {
-		speak(speechMsgInput.value);
-	}
-	 } else if (asyn == 0) {
-		 alert ('the code successfully loaded!')
-	 };
+	if (asyn == 1) {
+		if (speechMsgInput.value.length > 0) {
+			speak(speechMsgInput.value);
+		}
+	} else if (asyn == 0) {
+		alert ('The code was successfully loaded!');
+	};
 }
+
+loadButton.addEventListener ('click', function(){
+	LSA();
+})
 
 
 
