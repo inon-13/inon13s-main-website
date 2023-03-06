@@ -230,7 +230,6 @@ speechMsgInput.addEventListener("input", function() {
 		tw.innerHTML = '';
 	}
 });
-
 var saveButton = document.getElementById ('save');
 var loadButton = document.getElementById ('load');
 
@@ -294,6 +293,3 @@ function loadSource(voiceL, volumeL, rateL, pitchL, SMI, asyn) {
 loadButton.addEventListener ('click', function(){
 	LSA();
 })
-
-
-
