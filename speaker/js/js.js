@@ -277,7 +277,7 @@ function loadSource(voiceL, volumeL, rateL, pitchL, SMI, asyn) {
 	speechMsgInput.value = SMI;
 	if (asyn == 1) {
 		if (speechMsgInput.value.length > 0) {
-			speak(speechMsgInput.value);
+			setTimeout (function (){speak(speechMsgInput.value)}, 1000)
 		}
 	} else if (asyn == 0) {
 		alert ('The code was successfully loaded!');
