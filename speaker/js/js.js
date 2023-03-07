@@ -235,7 +235,6 @@ var loadButton = document.getElementById ('load');
 
 saveButton.addEventListener('click', function(){
   const SC = confirm ("Do you want to auto-speak this? (that means when you load the code, it will auto-speak)");
-
   let syn = 0;
   if (SC) {
     syn = 1;
@@ -244,7 +243,7 @@ saveButton.addEventListener('click', function(){
   let values = "loadSource('"+voiceSelect.value+"', "+volumeInputtwo.value+", "+rateInputtwo.value+", "+pitchInputtwo.value+", '"+speechMsgInput.value+"', "+syn+")";
   let valuesB64 = btoa(values);
 
-  navigator.clipboard.writeText(valuesB64);
+    setTimeout(function() {navigator.clipboard.writeText(valuesB64)}, 100)
 });
 
 
