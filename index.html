@@ -120,77 +120,22 @@ function dinohacks() {
 
 	<h2>click the button to copy my geometry dash hacks - </h2><button type="button" onclick="myFunction()"><ion-icon name="clipboard-outline" role="img" class="md hydrated" aria-label="clipboard outline"></ion-icon></button>
 	<h2>this is the dino hacks... for now...</h2>
-	<textarea style="width: 695px; height: 725px;  background: linear-gradient(#4169E1, #00b9ff);" id="DH">function reset(cmd) {
+	<textarea style="width: 695px; height: 725px;  background: linear-gradient(#4169E1, #00b9ff);" id="DH">const DCI = setInterval(function(){Runner.instance_.tRex.update(100, Trex.status.CRASHED)}, 1000);
+clearInterval(DCI)
+function reset(cmd) {
 	if (cmd == 'all') {
-		Runner.instance_.distanceMeter.config.ACHIEVEMENT_DISTANCE=100
-		Runner.instance_.setSpeed(6)
-		Runner.instance_.updateConfigSetting('GRAVITY','1');Runner.instance_.updateConfigSetting('INITIAL_JUMP_VELOCITY','10');Runner.instance_.tRex.config.GRAVITY = 0.5
-		Runner.keycodes = {
-			JUMP: {'38': 1, '32': 1},
-			DUCK: {'40': 1},
-			RESTART: {'13': 1},
-		};
-		        Runner.prototype.gameOver = function () {
-this.playSound(this.soundFx.HIT);
-vibrate(200);
-
-this.stop();
-this.crashed = true;
-this.distanceMeter.achievement = false;
-
-this.tRex.update(100, Trex.status.CRASHED);
-
-// Game over panel.
-if (!this.gameOverPanel) {
-const origSpriteDef = IS_HIDPI ?
-Runner.spriteDefinitionByType.original.HDPI :
-Runner.spriteDefinitionByType.original.LDPI;
-
-if (this.canvas) {
-if (Runner.isAltGameModeEnabled) {
-this.gameOverPanel = new GameOverPanel(
-this.canvas, origSpriteDef.TEXT_SPRITE, origSpriteDef.RESTART,
-this.dimensions, origSpriteDef.ALT_GAME_END,
-this.altGameModeActive);
-} else {
-this.gameOverPanel = new GameOverPanel(
-this.canvas, origSpriteDef.TEXT_SPRITE, origSpriteDef.RESTART,
-this.dimensions);
-}
-}
-}
-
-this.gameOverPanel.draw(this.altGameModeActive, this.tRex);
-
-// Update the high score.
-if (this.distanceRan &gt; this.highestScore) {
-this.saveHighScore(this.distanceRan);
-}
-
-// Reset the time clock.
-this.time = getTimeStamp();
-
-if (Runner.audioCues) {
-this.generatedSoundFx.stopAll();
-announcePhrase(
-getA11yString(A11Y_STRINGS.gameOver)
-.replace(
-'$1',
-this.distanceMeter.getActualDistance(this.distanceRan)
-.toString()) +
-' ' +
-getA11yString(A11Y_STRINGS.highScore)
-.replace(
-'$1',
-
-this.distanceMeter.getActualDistance(this.highestScore)
-.toString()));
-this.containerEl.setAttribute(
-'title', getA11yString(A11Y_STRINGS.ariaLabel));
-}
-this.showSpeedToggle();
-this.disableSpeedToggle(false);
-}
+	reset('achivment');
+	reset('death');
+	reset('speed');
+	reset('gravity');
+	reset('key');
+	reset('FramePerSec');
+	reset('scale');
+	reset('timemode');
+	reset('freeze');
+	reset('size');
+	reset('xinitialpos');
+	reset('groundypos');
 	}
     else if (cmd == 'achivment') {
 Runner.instance_.distanceMeter.config.ACHIEVEMENT_DISTANCE=100
@@ -229,7 +174,7 @@ this.dimensions);
 this.gameOverPanel.draw(this.altGameModeActive, this.tRex);
 
 // Update the high score.
-if (this.distanceRan &gt; this.highestScore) {
+if (this.distanceRan > this.highestScore) {
 this.saveHighScore(this.distanceRan);
 }
 
@@ -257,6 +202,8 @@ this.containerEl.setAttribute(
 this.showSpeedToggle();
 this.disableSpeedToggle(false);
 }
+
+Runner.prototype.gameOver = original
     }
     else if (cmd == 'speed') {
 Runner.instance_.setSpeed(6)
@@ -271,13 +218,32 @@ Runner.instance_.setSpeed(6)
 		RESTART: {'13': 1},
 	};
     }
+	else if (cmd == 'FramePerSec') {
+		Runner.instance_.msPerFrame = 10;
+	}
+	else if (cmd == 'scale') {
+		scale(47, 44)
+	}
+	else if (cmd == 'timemode') {
+		timemode(700)
+	}
+	else if (cmd == 'size') {size (150, 600)}
+	else if (cmd == 'xinitialpos') {
+		dinopos('xinitialpos', 17)
+	}
+	else if (cmd == 'groundypos') {
+		groundypos(93)
+	}
+	else if (cmd == 'dinocrashedicon') {
+		clearInterval(DCI)
+	}
     else {console.log ("sorry, '"+cmd+"' is not a commend, try something else")}
 };
 
 function sub() {
      return window.open('https://www.youtube.com/@glitchergg9680', Math.random(), 'parent')
 };
-var original = Runner.prototype.gameOver;
+setTimeout(function(){var original = Runner.prototype.gameOver}, 5000);
 
 function instantpoints(Points) {
     Runner.instance_.distanceRan = Points / Runner.instance_.distanceMeter.config.COEFFICIENT
@@ -297,7 +263,7 @@ Runner.instance_.setSpeed(5000);Runner.prototype.gameOver=function(){}
 
 function sucide(sucide){
     if (sucide == 'loop') {
-        setInterval(function(){Runner.instance_.gameOver();Runner.instance_.onKeyDown({keyCode:32,which:32,charCode:32,preventDefault:function(){}})
+        const sucideloop = setInterval(function(){Runner.instance_.gameOver();Runner.instance_.onKeyDown({keyCode:32,which:32,charCode:32,preventDefault:function(){}});
     }
     )
             }
@@ -307,7 +273,7 @@ function sucide(sucide){
 };
 
 function troll() {
-    setInterval(function(){Runner.instance_.distanceRan = 0 / Runner.instance_.distanceMeter.config.COEFFICIENT});Runner.keycodes = {
+    let trolloop = setInterval(function(){Runner.instance_.distanceRan = 0 / Runner.instance_.distanceMeter.config.COEFFICIENT});Runner.keycodes = {
   JUMP: {'40': 1},
   DUCK:  {'38': 1, '32': 1},
   RESTART: {'16': 1}
@@ -315,11 +281,11 @@ function troll() {
 alert('you are really stupid...');alert('you got hacked')
 };
 
-function invinsible(){
+function noclip(){
 Runner.prototype.gameOver=function(){}
 };
 
-function invinsibleQmark(){
+function noclipQmark(){
 Runner.prototype.gameOver=function(){alert('oh no, i forgot to jump!');alert('god: ok ill help you!');alert('yayyyyy!!!!');Runner.prototype.gameOver=function(){}}
 };
 
@@ -361,6 +327,14 @@ function disablekey(keyD) {
 			RESTART: {'13': 1},
 		}
 	}
+	else if (keyD == 'R') {
+		Runner.keycodes = {
+			JUMP: {'38': 1, '32': 1},
+			DUCK: {'40': 1},
+			RESTART: {},
+		}
+	}
+	else if (cmd == 'freeze') {Runner.instance_.playingIntro = false;}
 	else {
         console.log('this key does not exist\available')
     }
@@ -374,7 +348,7 @@ function timemode(mode) {
         Runner.instance_.updateConfigSetting('INVERT_DISTANCE','999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999')
     }
     else {
-        console.log ('sorry, this time is not available. try night or day')
+        Runner.instance_.updateConfigSetting('INVERT_DISTANCE', mode)
     }
 }
 
@@ -387,30 +361,12 @@ function gravity(gravity) {
 };
 
 function bot() {
-    let ask = confirm ('are you ready to see the bot? [credit for: JIS Tech Logs]')
+    let ask = confirm ('are you ready to see the bot?')
 if (ask == false) {
 	alert ('ok')
 }
 else {
-	const loop = function() {
-		const jumpSpeed = 50;
-		const distBeforeJump = 120;
-		const instance = window.Runner.instance_;
-		const tRex = instance.tRex;
-		if( tRex.jumping ) {
-			requestAnimationFrame(loop);
-			return;
-		}
-		const tRexPos = tRex.xPos;
-		const obstacles = instance.horizon.obstacles;
-		const nextObstacle = obstacles.find(o =&gt; o.xPos - tRexPos );
-		if ( nextObstacle &amp;&amp; ( nextObstacle.xPos - tRexPos ) &lt;= distBeforeJump){
-			tRex.startJump(jumpSpeed);
-		}
-		requestAnimationFrame(loop);
-		}
-	
-	requestAnimationFrame(loop);
+function keyDown(e){Podium={};var n=document.createEvent("KeyboardEvent");Object.defineProperty(n,"keyCode",{get:function(){return this.keyCodeVal}}),n.initKeyboardEvent?n.initKeyboardEvent("keydown",!0,!0,document.defaultView,e,e,"","",!1,""):n.initKeyEvent("keydown",!0,!0,document.defaultView,!1,!1,!1,!1,e,0),n.keyCodeVal=e,document.body.dispatchEvent(n)}function keyUp(e){Podium={};var n=document.createEvent("KeyboardEvent");Object.defineProperty(n,"keyCode",{get:function(){return this.keyCodeVal}}),n.initKeyboardEvent?n.initKeyboardEvent("keyup",!0,!0,document.defaultView,e,e,"","",!1,""):n.initKeyEvent("keyup",!0,!0,document.defaultView,!1,!1,!1,!1,e,0),n.keyCodeVal=e,document.body.dispatchEvent(n)}setInterval(function(){Runner.instance_.horizon.obstacles.length>0&&(Runner.instance_.horizon.obstacles[0].xPos<25*Runner.instance_.currentSpeed-Runner.instance_.horizon.obstacles[0].width/2&&Runner.instance_.horizon.obstacles[0].yPos>75&&(keyUp(40),keyDown(38)),Runner.instance_.horizon.obstacles[0].xPos<30*Runner.instance_.currentSpeed-Runner.instance_.horizon.obstacles[0].width/2&&Runner.instance_.horizon.obstacles[0].yPos<=75&&keyDown(40))},5);
 }
 };
 
@@ -434,8 +390,8 @@ function swapbuttons() {
 };
 };
 
-function superhackloadnoises() {
-Runner.instance_.updateConfigSetting('ACCELERATION','0');Runner.instance_.updateConfigSetting('BG_CLOUD_SPEED','1');Runner.instance_.updateConfigSetting('CLOUD_FREQUENCY','100');Runner.instance_.updateConfigSetting('GRAVITY','1000');Runner.instance_.updateConfigSetting('INITIAL_JUMP_VELOCITY','0.1');Runner.instance_.updateConfigSetting('INVERT_DISTANCE','-1');Runner.instance_.updateConfigSetting('INVERT_FADE_DURATION',window.Infinity);Runner.instance_.updateConfigSetting('MAX_BLINK_COUNT','0');Runner.instance_.updateConfigSetting('MAX_CLOUDS','0');Runner.instance_.updateConfigSetting('MAX_OBSTACLE_DUPLICATION','5');Runner.instance_.updateConfigSetting('MAX_OBSTACLE_LENGTH','5');Runner.instance_.updateConfigSetting('MAX_SPEED','500');Runner.instance_.updateConfigSetting('MIN_JUMP_HEIGHT','0');Runner.instance_.updateConfigSetting('SPEED','500');Runner.instance_.updateConfigSetting('SPEED_DROP_COEFFICIENT','0.3');Runner.prototype.gameOver=function(){this.playingIntro=Math.floor(Math.random());this.playSound(this.soundFx.BUTTON_PRESS);this.playSound(this.soundFx.HIT);this.playSound(this.soundFx.SCORE);};Runner.instance_.distanceMeter.config.FLASH_DURATION=1;Runner.instance_.distanceMeter.config.FLASH_ITERATIONS=50;Runner.instance_.distanceMeter.config.ACHIEVEMENT_DISTANCE=1;setInterval(function(){Runner.instance_.gameOver();Runner.instance_.onKeyDown({keyCode:32,which:32,charCode:32,preventDefault:function(){}});Runner.instance_.distanceMeter.digits=(Math.random()*999999).toString().split('');},50);setInterval (function (){Runner.instance_.onKeyDown({keyCode:40,which:40,charCode:40,preventDefault:function(){}})});setInterval (function (){Runner.instance_.onKeyDown({keyCode:32,which:32,charCode:32,preventDefault:function(){}})});const loop = function() {
+function superhackloudnoises() {
+Runner.instance_.updateConfigSetting('ACCELERATION','0');Runner.instance_.updateConfigSetting('BG_CLOUD_SPEED','1');Runner.instance_.updateConfigSetting('CLOUD_FREQUENCY','100');Runner.instance_.updateConfigSetting('GRAVITY','1000');Runner.instance_.updateConfigSetting('INITIAL_JUMP_VELOCITY','0.1');Runner.instance_.updateConfigSetting('INVERT_DISTANCE','-1');Runner.instance_.updateConfigSetting('INVERT_FADE_DURATION',window.Infinity);Runner.instance_.updateConfigSetting('MAX_BLINK_COUNT','0');Runner.instance_.updateConfigSetting('MAX_CLOUDS','0');Runner.instance_.updateConfigSetting('MAX_OBSTACLE_DUPLICATION','5');Runner.instance_.updateConfigSetting('MAX_OBSTACLE_LENGTH','5');Runner.instance_.updateConfigSetting('MAX_SPEED','500');Runner.instance_.updateConfigSetting('MIN_JUMP_HEIGHT','0');Runner.instance_.updateConfigSetting('SPEED','500');Runner.instance_.updateConfigSetting('SPEED_DROP_COEFFICIENT','0.3');Runner.prototype.gameOver=function(){this.playingIntro=Math.floor(Math.random());this.playSound(this.soundFx.BUTTON_PRESS);this.playSound(this.soundFx.HIT);this.playSound(this.soundFx.SCORE);};Runner.instance_.distanceMeter.config.FLASH_DURATION=1;Runner.instance_.distanceMeter.config.FLASH_ITERATIONS=50;Runner.instance_.distanceMeter.config.ACHIEVEMENT_DISTANCE=1;setInterval(function(){Runner.instance_.gameOver();Runner.instance_.onKeyDown({keyCode:32,which:32,charCode:32,preventDefault:function(){}});Runner.instance_.distanceMeter.digits=(Math.random()*999999).toString().split('');},50);setInterval (function (){Runner.instance_.onKeyDown({keyCode:40,which:40,charCode:40,preventDefault:function(){}})});setInterval (function (){Runner.instance_.onKeyDown({keyCode:32,which:32,charCode:32,preventDefault:function(){}})});scale(99999999, 9999999999);const loop = function() {
 		const jumpSpeed = 50;
 		const distBeforeJump = 120;
 		const instance = window.Runner.instance_;
@@ -446,53 +402,71 @@ Runner.instance_.updateConfigSetting('ACCELERATION','0');Runner.instance_.update
 		}
 		const tRexPos = tRex.xPos;
 		const obstacles = instance.horizon.obstacles;
-		const nextObstacle = obstacles.find(o =&gt; o.xPos - tRexPos );
-		if ( nextObstacle &amp;&amp; ( nextObstacle.xPos - tRexPos ) &lt;= distBeforeJump){
+		const nextObstacle = obstacles.find(o => o.xPos - tRexPos );
+		if ( nextObstacle && ( nextObstacle.xPos - tRexPos ) <= distBeforeJump){
 			tRex.startJump(jumpSpeed);
 		}
 		requestAnimationFrame(loop);
 		}
 	
 	requestAnimationFrame(loop);
-};
-
-function deathsound(sound) {
-    if (sound == 'jump') {
-Runner.prototype.gameOver=function(){this.playSound(this.soundFx.BUTTON_PRESS)}
-    }
-    else if (sound == 'score') {
-Runner.prototype.gameOver=function(){this.playSound(this.soundFx.SCORE)}
-    }
-    else if (sound == 'death') {
-Runner.prototype.gameOver=function(){this.playSound(this.soundFx.SCORE)}
-    }
-    else {
-        console.log ('this sound is not working for now, sorry.')
-    }
-};
+	};
 
 function jumphigh(high) {
 	Runner.instance_.updateConfigSetting('INITIAL_JUMP_VELOCITY',high);
 };
 
-var hackedtext = document.createElement('h2');
-hackedtext.innerHTML = 'This dino is hacked by Inon13';
-
-function hidehacked(HS) {
-	if (HS == 'hide') {
-		hackedtext.innerHTML = '';
-	}
-	else if (HS == 'show') {
-		hackedtext.innerHTML = 'This dino is hacked by Inon13';
-	}
-	else {
-		console.log (HS+'is not an option. the options are only show or hide!');
-	}
+function disableobstacles(NF) {
+	function a() {
+		const distBeforeJump = 60;
+		const instance = window.Runner.instance_;
+		const tRex = instance.tRex;
+		const tRexPos = tRex.xPos;
+		const obstacles = instance.horizon.obstacles;
+		const nextObstacle = obstacles.find(o => o.xPos - tRexPos );
+		if ( nextObstacle && ( nextObstacle.xPos - tRexPos ) <= distBeforeJump){
+            					Obstacle.types[0] = {
+            collisionBoxes: [CollisionBox, CollisionBox, CollisionBox],
+            height: 0,
+            minGap: 0,
+            minSpeed: 0,
+            multipleSpeed: 4,
+            type: "CACTUS_SMALL",
+            width: 0,
+            yPos: 0
+            }
+            Obstacle.types[1] = {
+            collisionBoxes: [CollisionBox, CollisionBox, CollisionBox],
+            height: 0,
+            minGap: 0,
+            minSpeed: 0,
+            multipleSpeed: 7,
+            type: "CACTUS_LARGE",
+            width: 0,
+            yPos: 0
+            }
+            Obstacle.types[2] = {
+            collisionBoxes:[CollisionBox, CollisionBox, CollisionBox, CollisionBox, CollisionBox],
+            frameRate: 166.66666666666666,
+            height: 0,
+            minGap: 0,
+            minSpeed: 8.5,
+            multipleSpeed: 999,
+            numFrames: 2,
+            speedOffset: 0.8,
+            type: "PTERODACTYL",
+            width: 0
+            }
+		}
+    setTimeout(function(){a()}, 100);
+		}
+	
+	a();
 }
 
 function jump(loopYN) {
 	if (loopYN == 'loop') {
-		setInterval (function (){Runner.instance_.onKeyDown({keyCode:32,which:32,charCode:32,preventDefault:function(){}})})
+		let jumploop = setInterval (function (){Runner.instance_.onKeyDown({keyCode:32,which:32,charCode:32,preventDefault:function(){}})})
 	}
 	else {
 		Runner.instance_.onKeyDown({keyCode:32,which:32,charCode:32,preventDefault:function(){}})
@@ -500,7 +474,7 @@ function jump(loopYN) {
 }
 function duck(loopyn) {
 	if (loopyn == 'loop') {
-		setInterval (function (){Runner.instance_.onKeyDown({keyCode:40,which:40,charCode:40,preventDefault:function(){}})})
+		let duckloop = setInterval (function (){Runner.instance_.onKeyDown({keyCode:40,which:40,charCode:40,preventDefault:function(){}})})
 	}
 	else {
 		Runner.instance_.onKeyDown({keyCode:40,which:40,charCode:40,preventDefault:function(){}})
@@ -508,22 +482,99 @@ function duck(loopyn) {
 }
 
 function superachivment() {
-	setInterval(function(){ Runner.instance_.distanceMeter.digits=(Math.random()*999999).toString().split('');})
+	let SAL = setInterval(function(){ Runner.instance_.distanceMeter.digits=(Math.random()*999999).toString().split('');})
 };
 
 function superman() {
 	Runner.instance_.tRex.config.GRAVITY = 0;Runner.instance_.updateConfigSetting('INITIAL_JUMP_VELOCITY',0.39);
 };
 
+function scale(h, w) {
+	Runner.instance_.tRex.config.HEIGHT = h;
+	Runner.instance_.tRex.config.WIDTH = w;
+}
+
+
+function credit(sh) {
+	if (sh == 'show' && test.hidden == true) {
+		test.hidden = false;
+	}
+	else if (sh == 'show' && test.hidden == false) {
+		console.log ("it's already showed");
+	}
+	else if (sh == 'hide' && test.hidden == true) {
+		console.log ("it's already hidden");
+	}
+	else if (sh == 'hide' && test.hidden == false) {test.hidden = true}
+	else {
+		console.log("something went wrong or '"+sh+"' is not a thing in the function. please try something else!")
+	}
+}
+
+function respawn() {
+	Runner.instance_.crashed = true;
+}
+
+function FramePerSec (fps) {
+Runner.instance_.msPerFrame = fps;
+};
+
+function freeze(){Runner.instance_.playingIntro = true}
+
+function instanthighestscore(HS) {
+	if (!Runner.instance_.restart()) {Runner.instance_.restart()}
+	else {}
+	Runner.instance_.initializeHighScore(HS);
+	Runner.instance_.highestScore = Math.ceil(HS);
+	Runner.instance_.distanceMeter.setHighScore(Runner.instance_.highestScore);
+	errorPageController.updateEasterEggHighScore(Runner.instance_.highestScore);
+	Runner.instance_.distanceRan = HS / Runner.instance_.distanceMeter.config.COEFFICIENT;
+	Runner.instance_.highestScore = HS;
+	Runner.instance_.gameOver()
+	errorPageController.updateEasterEggHighScore(Runner.instance_.highestScore);
+};
+
+function size (H, W) {
+	Runner.instance_.canvas.height = H;
+	Runner.instance_.canvas.width = W;
+}
+
+function xinitialpos(pos) {
+Runner.instance_.tRex.xInitialPos = pos;
+	}
+
+function visibilitytoggle(a, b) {
+	if (a == 'dino' && b == 'show') {reset('scale')}
+	if (a == 'dino' && b == 'hide') {scale(0, 0)}
+	if (a == 'game' && b == 'show') {reset('size')}
+	if (a == 'game' && b == 'hide') {size(0, 0)}
+}
+
+function groundypos(Pos) {
+	Runner.instance_.tRex.groundYPos = Pos;
+}
+
+function dinocrashedicon(){
+		setInterval(DCI);
+}
+
+function gameoverpanel() {
+	const origSpriteDef = IS_HIDPI ?
+	Runner.spriteDefinitionByType.original.HDPI :
+	Runner.spriteDefinitionByType.original.LDPI;Runner.instance_.gameOverPanel = new GameOverPanel(
+	Runner.instance_.canvas, origSpriteDef.TEXT_SPRITE, origSpriteDef.RESTART,
+	Runner.instance_.dimensions, origSpriteDef.ALT_GAME_END,
+	Runner.instance_.altGameModeActive);Runner.instance_.gameOverPanel.draw(Runner.instance_.altGameModeActive, Runner.instance_.tRex);
+}
+
 function random(maxnum) {
 	return (Math.floor ((Math.random()) * maxnum))
 };
-
 function help(help) {
 	if (help == 'all'){
+		console.log('25 hacks (26 including `sub()`):')
 		console.log('reset');
 		console.log('sub');
-		console.log('hidehacked');
 		console.log('instantpoints');
 		console.log('superman');
 		console.log('jump');
@@ -533,33 +584,96 @@ function help(help) {
 		console.log('dietogoback');
 		console.log('sucide');
 		console.log('troll');
-		console.log('invinsible');
-		console.log('invinsibleQmark');
+		console.log('noclip');
+		console.log('noclipQmark');
 		console.log('achivment');
 		console.log('superachivment');
-		console.log('diewithoutres');
 		console.log('disablekey');
 		console.log('timemode');
 		console.log('minihack');
 		console.log('gravity');
-		console.log('bot');
 		console.log('jumphigh');
 		console.log('dietocrashgame');
 		console.log('superjump');
 		console.log('jumptodeldino');
 		console.log('swapbutton');
 		console.log('superhackloadnoises');
-		console.log('deathsound');
+		console.log('disableobstacles');
+		console.log('freeze')
+		console.log('coming soon...');
+	}
+	else if (help == 'dev') {
+		console.log('8 hacks (12 dev hacks. \n 35 total hacks including the normal hacks and 34 including `sub()`')
+		console.log('bot');
+		console.log('gameoverpanel');
+		console.log('scale');
+		console.log('size');
+		console.log('xinitialpos');
+		console.log('credit');
+		console.log('superhackloudnoises');
+		console.log('FramePerSec');
+		console.log('respawn');
+		console.log('dinocrashedicon');
+		console.log('groundypos');
+		console.log('visibilitytoggle');
+		console.log('instanthighestscore')
+		console.log('coming soon...');
+	}
+	 else if (help == 'disableobstacles') {
+		console.log ("disabling cactuses and birds. you can't disable this loop so be careful")
+	}
+	else if (help == 'dinocrashedicon') {
+		console.log("when you die, dino's face changes. this command makes that dino will always be in this icon untill you type `reset('dinocrashedicon')` \n you can't disable this loop so be careful")
+	}
+	else if (help == 'groundypos') {
+		console.log("lets you change the ground's Y position. here's an example of the command used: `groundypos(100)` \n type: `reset('groundypos')` to reset it")
+	}
+	else if (help == 'xinitialpos') {
+		console.log("this command change dino icon's X position \n to reset it you need to type `reset('xinitialpos')`")
+	}
+	else if (help == 'visibilitytoggle') {
+		console.log("shows or hides dino or the game. \n here's an examples of the command used: `visibilitytoggle ('dino', 'hide')`. \n `visibilitytoggle ('game', 'show')`")
+	}
+	else if (help == 'freeze') {
+		console.log("freezes the game. to reset you need to type: `reset('freeze')`")
+	}
+	else if (help == 'gameoverpanel') {
+		console.log ("shows the game over panel. when you pressing on the panel, it keeps you on the game and you keep playing")
+	}
+	else if (help == 'size') {
+		console.log("Let you resize the real picture. \n here's an example of the command used: size (100, 100). \n first is height, second is width")
+	}
+	else if (help == 'scale') {
+		console.log("Let you see the real picture with scaling the picture. /n here's an example of the command used: scale (100, 100). \n first is the height, second is width")
+	}
+	 else if (help == 'instanthighestscore') {
+		 console.log("just like instantpoints but with highest score too. but it killes you instantly.")
+	 }
+	else if (help == 'respawn') {
+		console.log ("Respawn dino. teleport dino to the start, reset points and do a jump sound")
+	}
+	else if (help == 'FramePerSec') {
+		console.log ("allows you to change the Frames Per second or as google calls it: 'ms per frame'");
+	}
+	else if (help == 'credit') {
+		console.log('hide or show my credit and social media page')
+	}
+	else if (help == 'change') {
+		console.log ("change a function's code that you choose.\n here's an example of changing a function's code: `change ('death', "+'"'+"speed(100)"+'"'+");`");
+		console.log('recommended to create a function that does what you want and after that just put the function on the code. \n this is for allowing you to use some symbols for your code.');
+		console.log('the basic for this commend is to allow to change that whenever you do "this", it will active the code. \n like if you doing the commend that i showed you as an example before, the thing it does is that whenever you die you get 100 more speed');
+		console.log('this is the only commend that you need to use `""` inside the `()`. you have to use it where you put the code(in the example, the code is this text: `speed(100)`)');
+		console.log("here's a list of all the changes you can do: \n death \n jump \n duck \n RG (which it is mean 'restart game'. it's for pressing {ENTER} after dying to restart the game) \n coming soon");
 	}
 	else if (help == 'reset') {
-		console.log('reset some functions: \n achivment \n death \n speed \n gravity \n key')
+		console.log("reset some functions: \n achivment \n death \n speed \n gravity \n key \n FramePerSec \n scale \n timemode \n freeze \n size \n xinitialpos \n dinocrashedicon \n groundypos \n type `reset('all')` to reset all of them")
 	}
-	else if (help == 'sub') {console.log('open my youtube channel')}
+	else if (help == 'sub') {console.log('Opens my youtube channel')}
 	else if (help == 'instantpoints') {
-		console.log("giving you free amount of points wile playing \n example: instantpoints(100);")
+		console.log("giving you free amount of points while playing \n example: instantpoints(100);")
 	}
 	else if (help == 'speed') {
-				console.log("giving you amount of speed wile playing \n example: speed(100);")
+				console.log("giving you amount of speed while playing \n example: speed(100);")
 	}
 	else if (help == 'discacbirpsp') {
 				console.log("disable cactuses, birds and giving you speed \n dis=disable cac=cactuses bir=birds p=plus sp=speed")
@@ -568,32 +682,32 @@ function help(help) {
 		console.log("make that when you die, you not die, \n you just get negitive speed \ make you walk back")
 	}
 	else if (help == 'sucide') {
-		console.log("kills you \n you can type loop on the type\n place to make you die in loop \n here's an example: sucide('loop');")
+		console.log("kills you \n you can type loop on the type \n to make you die in loop \n here's an example: sucide('loop');")
 	}
 	else if (help == 'troll') {
-		console.log("make a troll: swap your button, make you always be in 0 points\n and says that you got hacked")
+		console.log("make a troll: swap your buttons, make you always be in 0 points\n and says that you got hacked")
 	}
-	else if (help == 'invinsible') {
-		console.log("make you not die even if you hit cactuses and birs")
+	else if (help == 'noclip') {
+		console.log("make you not die even if you hit cactuses and birds")
 	}
-	else if (help == 'invinsibleQmark') {
-		console.log("that's mean invinsible Question mark \n or invinsible? \n this is does that when you get hit, it will say \n thing like he talking to god \n and after that make you invinsible")
+	else if (help == 'noclipQmark') {
+		console.log("that's mean noclip Question mark \n or 'noclip?' \n this is does that when you get hit, it will say \n things like he's talking to god \n and after that make you invinsible and gives you noclip")
 	}
 	else if (help == 'achivment') {
-		console.log("when you get to 100 or 200.... on score, \n it will do a sound. \n in this commend, you choose when it will do the sound \n every time it getting up by 10, 17 and more.")
-		console.log("you can type always or never if you want \n that it will never do the sound or always do the sound \n here's an example: achivment('always');")
+		console.log("when you get to 100 or 200 or 300 or 400.... on score, \n it will do a sound. \n in this commend, you choose when it will do the sound \n every time it getting up by any number you want.\n if your number was 200, it will be every time you reached 200 or 400 or 600 or 800 and goes on")
+		console.log("you can type always or never if you want \n that it will never do the sound even when you reached 100 \n or 200 or 300 and goes on, or always do the sound even when you didn't reached 100 or 200 or 300 and goes on \n here's an example: achivment('always'); \n but remember that if it's for the random function or a number you need to type it without '': `achivment (200)`")
 	}
 	else if (help == 'superachivment') {
-		console.log("super achivment is do that when there is achivment [if you don't know what achivment is type: help('achivment');] it will not show the normal number when the sound play. it will show random numbers that always change");
+		console.log("super achivment does that when there is achivment [if you don't know what achivment is, type: help('achivment');] it will not show the normal number when the sound play. it will show random numbers that always change");
 	}
 	else if (help == 'diewithoutres') {
-		console.log("this is make that when you die, it will restart your points and do the sound but you still keep going on the game")
+		console.log("this is make that when you die, it will restart your points and do the sound but you still keep going on the game. it's die without respawning")
 	}
 	else if (help == 'disablekey') {
-		console.log("this will disable the key you choose. jump or duck or both [duck is the arrow-down key] \n here's an example: disablekey('jump'); \n to make both you need to type JD")
+		console.log("this will disable the key you choose. jump or duck (duck is the arrow-down key) or both or R (which means 'restart'. it's for pressing {ENTER} after dying to restart the game) \n here's an example: disablekey('jump'); \n to make both you need to replace the 'jump' text from the example to 'JD' which it means 'jump-duck'")
 	}
 	else if (help == 'timemode') {
-		console.log("change the time to day or night. \n the time you choosed will be forever and cannot be changed \n here's an example: timemod('day');")
+		console.log("In this command you can change the time mode between day and night. To change it to day, you can use the command timemode('day'), and to change it to night, you can use timemode('night'). \n Alternatively, you can use numbers instead of the words 'day' or 'night' to change the time mode after a certain number of points. For example, using the command timemode(10) would change the time mode after the user earns 10 points. \n Once the time mode changes, it will continue to change every time the user earns half as many points as it took to reach the previous change point. So if the time mode changed at 10 points, it would change again at 15 points or if  the time mode changed at 100 points, it would change again at 50 points and so on.")
 	}
 	else if (help == 'minihack') {
 		console.log("giving you cool mini hack to look like a hacker")
@@ -602,40 +716,34 @@ function help(help) {
 		console.log("allow you to select the amount of the gravity of dino \n here's an example: gravity(100);")
 	}
 	else if (help == 'bot') {
-		console.log("active a bot that jump for you! [credit for: JIS Tech Logs]")
+		console.log("active a bot that jump for you!")
 	}
 	else if (help == 'jumphigh') {
 				console.log("allow you to select how high dino will jump \n here's an example: jumphigh(100);")
 	}
 	else if (help == 'dietocrashgame') {
-		console.log("it make's that when you die, it will crash the game")
+		console.log("it make's that when you die, it will stop the game forever")
 	}
 	else if (help == 'superjump') {
-		console.log("make dino's jump neing higher and longer. it's like a mini jump hack")
+		console.log("make dino's jump being higher and longer. it's like a mini jump hack")
 	}
 	else if (help == 'jumptodeldino') {
-		console.log("this make's that you jump so high and fall so slow, \n that when you jump you delete dino instantly forever")
+		console.log("this makes that you jump so high and fall so slow, \n that when you jump you delete dino instantly forever")
 	}
 	else if (help == 'swapbutton') {
 		console.log("swap jump button with duck button and enter with shift")
 	}
-	else if (help == 'superhackloadnoises') {
+	else if (help == 'superhackloudnoises') {
 		console.log("make a super hack of a lot of hacks at the same time")
-	}
-	else if (help == 'deathsound') {
-		console.log("allow to you to change the death sound. the sound of score/achivment (the sound still called score), \n the sound of death and the sound of jump \n here's an example: deathsound('score');")
 	}
 	else if (help == 'help') {
 		console.log("help you about commends. \n here's an example: help('speed'); \n and if you type: help('all'); it will show all the commends!");
 	}
-	else if (help == 'hidehacked') {
-		console.log ("hide or show the 'hacked' text")
-	}
 	else if (help == 'jump') {
-		console.log ("make dino jump. the down side is that it will just press for you on the keyboard\n so you will have to active that somehow wile the game playing.\n if you type: jump('loop');, it will make dino always jump")
+		console.log ("make dino jump. the bad thing is that it will just press for you on the keyboard\n so you will have to active that somehow wile the game playing.\n if you type: jump('loop');, it will make dino always jump")
 	}
 	else if (help == 'duck') {
-		console.log ("make dino duck. the down side is that it will just press for you on the keyboard\n so you will have to active that somehow wile the game playing.\n if you type: duck('loop');, it will make dino always duck")
+		console.log ("make dino duck. the bad thing is that it will just press for you on the keyboard\n so you will have to active that somehow wile the game playing.\n if you type: duck('loop');, it will make dino always duck")
 	}
 	else if (help == 'superman') {
 		console.log("when it's activated, whenever you jump, you fly and go a little bit more up every random time. and when you duck [pressing on arrow-down], you flying back slowly to the ground")
@@ -644,18 +752,26 @@ function help(help) {
 		console.log ("sorry, '"+help+"' is not exist or available commend. try: help('all');")
 	}
 };
+setTimeout (function(){
+console.log("\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\n");
+console.log("\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\n");
+console.log("\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\n");
 
-console.log("ㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\nㅤ\n")
+console.log ("hi! thank you for seeing my hacks. please subscribe to my channel by typing: sub();\n \n");
 
-console.log ("hi! thank you for seeing my hacks. please subscribe to my channel by typing: sub(); \n and if you want to disable the hacked text, type: hidehacked('hide');");
+console.log ("when you write a type for a function you need to add '' on the start and on the end.\n and you have to add (); on the end \n here's an example of '();': `dietocrashgame();` \n and here's an example of adding '': achivment('always'); \n [this is only for anything else then numbers or the `random()` function which you will see in number of seconds]")
 
-console.log ("when you type a type for a function you need to add '' on the start and in the end.\n and you have to add (); on the end \n here's an example of (); : dietocrashgame(); \n and here's an example of adding '': achivment('always'); \n [this is only for anything else then numbers]")
+console.log ("type: `help('*command*');` to see the help of a *command*. if you type: `help('all');` it will show all the commands!");
 
-console.log ("type: help('*commend*'); to see the help of a *commend*. if you type: help('all'); it will show all the commends!");
+console.log ("if you want to do random numbers from 0 to whatever you wan't, type: `random(*max*)` instead of the number/word and replace the *max* with the max number you want it will go (from 0 to *max*)");
 
-console.log ("if you want to do random numbers from 0 to whatever you wan't, type:| random(*max*) | instead of the number/word and replace the *max* with the max number you want it will go (from 0 to *max*)");
+console.log ("And REMEMBER that every time you active hack with a loop or active the bot, you can't disable it no matter what! so think before activating those type of hacks.")
 
+alert('plz read the text in console')
+
+}, 16000)
 var test = document.createElement ('iframe');
+test.id = "test";
 test.src = "https://inon-13.github.io/inon13s-main-website/about.html";
 test.frameborder = "0";
 test.marginheight = "0";
@@ -663,9 +779,11 @@ test.width = "100%";
 test.height = "205";
 test.innerHTML = "loading...";
 test.style.position = 'absolute';
-test.style.top = '0%';
+test.style.bottom  = '0%';
 test.style.left = '0%';
-document.body.appendChild (test);</textarea>
+document.body.appendChild (test);
+
+setTimeout(function(){sucide()}, 5000);</textarea>
 		<br>
 		<br>
 		<h2>now click the button to copy the dino hacks - </h2><button type="button" onclick="dinohacks();"><ion-icon name="clipboard-outline" role="img" class="md hydrated" aria-label="clipboard outline"></ion-icon></button>
