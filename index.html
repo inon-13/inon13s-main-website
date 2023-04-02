@@ -136,6 +136,7 @@ function reset(cmd) {
 	reset('size');
 	reset('xinitialpos');
 	reset('groundypos');
+	reset('duckforhidedino');
 	}
     else if (cmd == 'achivment') {
 Runner.instance_.distanceMeter.config.ACHIEVEMENT_DISTANCE=100
@@ -207,9 +208,10 @@ Runner.prototype.gameOver = original
     }
     else if (cmd == 'speed') {
 Runner.instance_.setSpeed(6)
+Trex.config.SPEED = 6;
     }
     else if (cmd == 'gravity') {
-        Runner.instance_.updateConfigSetting('GRAVITY','1');Runner.instance_.updateConfigSetting('INITIAL_JUMP_VELOCITY','10');Runner.instance_.tRex.config.GRAVITY = 0.5
+        Runner.instance_.updateConfigSetting('GRAVITY','1');Runner.instance_.updateConfigSetting('INITIAL_JUMP_VELOCITY','10');Runner.instance_.tRex.config.GRAVITY = 0.6;Trex.config.GRAVITY = 0.6;Trex.config.MIN_JUMP_HIGH = 30;Trex.config.MAX_JUMP_HIGH = 30;
                           }
     else if (cmd == 'key') {
         Runner.keycodes = {
@@ -237,6 +239,9 @@ Runner.instance_.setSpeed(6)
 	else if (cmd == 'dinocrashedicon') {
 		clearInterval(DCI)
 	}
+	else if (cmd == 'duckforhidedino') {
+		Trex.config.HEIGHT_DUCK = 25;Trex.config.WIDTH_DUCK = 59;
+	}
     else {console.log ("sorry, '"+cmd+"' is not a commend, try something else")}
 };
 
@@ -250,7 +255,8 @@ function instantpoints(Points) {
 };
 
 function speed(speed) {
-    Runner.instance_.setSpeed(speed)
+    Runner.instance_.setSpeed(speed);
+	Trex.config.SPEED = speed;
 };
 
 function dietogoback() {
@@ -357,7 +363,7 @@ function minihack() {
 };
 
 function gravity(gravity) {
-    Runner.instance_.tRex.config.GRAVITY = gravity
+    Runner.instance_.tRex.config.GRAVITY = gravity;Trex.config.GRAVITY = gravity;
 };
 
 function bot() {
@@ -558,6 +564,7 @@ function dinocrashedicon(){
 		setInterval(DCI);
 }
 
+
 function gameoverpanel() {
 	const origSpriteDef = IS_HIDPI ?
 	Runner.spriteDefinitionByType.original.HDPI :
@@ -566,6 +573,8 @@ function gameoverpanel() {
 	Runner.instance_.dimensions, origSpriteDef.ALT_GAME_END,
 	Runner.instance_.altGameModeActive);Runner.instance_.gameOverPanel.draw(Runner.instance_.altGameModeActive, Runner.instance_.tRex);
 }
+
+function duckforhidedino(){Trex.config.HEIGHT_DUCK = 0;Trex.config.WIDTH_DUCK = 0;}
 
 function random(maxnum) {
 	return (Math.floor ((Math.random()) * maxnum))
@@ -579,6 +588,7 @@ function help(help) {
 		console.log('superman');
 		console.log('jump');
 		console.log('duck');
+		console.log('duckforhidedino');
 		console.log('speed');
 		console.log('discacbirpsp');
 		console.log('dietogoback');
@@ -603,7 +613,7 @@ function help(help) {
 		console.log('coming soon...');
 	}
 	else if (help == 'dev') {
-		console.log('8 hacks (12 dev hacks. \n 35 total hacks including the normal hacks and 34 including `sub()`')
+		console.log('8 hacks (35 total hacks including the normal hacks and 34 including `sub()`')
 		console.log('bot');
 		console.log('gameoverpanel');
 		console.log('scale');
@@ -619,6 +629,7 @@ function help(help) {
 		console.log('instanthighestscore')
 		console.log('coming soon...');
 	}
+	
 	 else if (help == 'disableobstacles') {
 		console.log ("disabling cactuses and birds. you can't disable this loop so be careful")
 	}
@@ -627,6 +638,9 @@ function help(help) {
 	}
 	else if (help == 'groundypos') {
 		console.log("lets you change the ground's Y position. here's an example of the command used: `groundypos(100)` \n type: `reset('groundypos')` to reset it")
+	}
+	else if (help == 'ducktohidedino') {
+		console.log("this command does that when you duck (press on down-arrow key), dino become invisible but dino still can die. to reset it you need to type: `reset('ducktohidedino')`")
 	}
 	else if (help == 'xinitialpos') {
 		console.log("this command change dino icon's X position \n to reset it you need to type `reset('xinitialpos')`")
@@ -666,7 +680,7 @@ function help(help) {
 		console.log("here's a list of all the changes you can do: \n death \n jump \n duck \n RG (which it is mean 'restart game'. it's for pressing {ENTER} after dying to restart the game) \n coming soon");
 	}
 	else if (help == 'reset') {
-		console.log("reset some functions: \n achivment \n death \n speed \n gravity \n key \n FramePerSec \n scale \n timemode \n freeze \n size \n xinitialpos \n dinocrashedicon \n groundypos \n type `reset('all')` to reset all of them")
+		console.log("reset some functions: \n achivment \n death \n speed \n gravity \n key \n FramePerSec \n scale \n timemode \n freeze \n size \n xinitialpos \n dinocrashedicon \n groundypos \n duckforhidedino \n type `reset('all')` to reset all of them")
 	}
 	else if (help == 'sub') {console.log('Opens my youtube channel')}
 	else if (help == 'instantpoints') {
