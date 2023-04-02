@@ -120,9 +120,7 @@ function dinohacks() {
 
 	<h2>click the button to copy my geometry dash hacks - </h2><button type="button" onclick="myFunction()"><ion-icon name="clipboard-outline" role="img" class="md hydrated" aria-label="clipboard outline"></ion-icon></button>
 	<h2>this is the dino hacks... for now...</h2>
-	<textarea style="width: 695px; height: 725px;  background: linear-gradient(#4169E1, #00b9ff);" id="DH">const DCI = setInterval(function(){Runner.instance_.tRex.update(100, Trex.status.CRASHED)}, 1000);
-clearInterval(DCI)
-function reset(cmd) {
+	<textarea style="width: 695px; height: 725px;  background: linear-gradient(#4169E1, #00b9ff);" id="DH">function reset(cmd) {
 	if (cmd == 'all') {
 	reset('achivment');
 	reset('death');
@@ -209,6 +207,7 @@ Runner.prototype.gameOver = original
     else if (cmd == 'speed') {
 Runner.instance_.setSpeed(6)
 Trex.config.SPEED = 6;
+Runner.config.ACCELERATION = 0.001;
     }
     else if (cmd == 'gravity') {
         Runner.instance_.updateConfigSetting('GRAVITY','1');Runner.instance_.updateConfigSetting('INITIAL_JUMP_VELOCITY','10');Runner.instance_.tRex.config.GRAVITY = 0.6;Trex.config.GRAVITY = 0.6;Trex.config.MIN_JUMP_HIGH = 30;Trex.config.MAX_JUMP_HIGH = 30;
@@ -257,6 +256,8 @@ function instantpoints(Points) {
 function speed(speed) {
     Runner.instance_.setSpeed(speed);
 	Trex.config.SPEED = speed;
+	const ACCELERATION = speed / 100;
+	Runner.config.ACCELERATION = ACCELERATION ;
 };
 
 function dietogoback() {
@@ -561,7 +562,23 @@ function groundypos(Pos) {
 }
 
 function dinocrashedicon(){
-		setInterval(DCI);
+Trex.animFrames.RUNNING = {
+frames: [220],
+msPerFrame: 16.666666666666668,
+}
+Trex.animFrames.JUMPING = {
+frames: [220],
+msPerFrame: 16.666666666666668,
+}
+Trex.animFrames.WAITING = {
+frames: [220],
+msPerFrame: 16.666666666666668,
+}
+Trex.animFrames.DUCKING = {
+frames: [220],
+msPerFrame: 16.666666666666668,
+}
+Trex.config.WIDTH_DUCK = 44
 }
 
 
